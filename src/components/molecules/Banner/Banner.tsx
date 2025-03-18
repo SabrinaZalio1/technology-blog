@@ -1,12 +1,13 @@
-import React from 'react'
 import { BannerContainer, Title } from './styled'
 import { Button } from '../../atoms/Button/Button'
+import UploadPostModal from '../../organisms/UploadPostModal/UploadPostModal'
 
 function Banner() {
   return (
     <BannerContainer>
         <Title>Sign up for our newsletter and get daily updates </Title>
-        <Button variant='primary'text='Subscribe'/>
+        <UploadPostModal><Button variant='primary'text='Subscribe'/></UploadPostModal>
+        
     </BannerContainer>
   )
 }

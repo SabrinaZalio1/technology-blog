@@ -13,7 +13,6 @@ function Blog() {
              {/* <FilterPill text='Diversity & Inclusion'/>
             <Button variant='primary' text="oli"/> */}
             <PostList/> 
-       <UploadPostModal/>
        <UploadLoader/>
             {/* <MostViewPosts/> */}
             <Banner/>

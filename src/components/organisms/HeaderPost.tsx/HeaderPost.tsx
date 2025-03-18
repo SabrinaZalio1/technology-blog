@@ -1,21 +1,20 @@
-import { CategoryContainer, Detail, HeaderPostContainer, InfoContainer, Title } from './styled'
+import { CategoryContainer, Detail, HeaderPostContainer, InfoContainer, Link, Section, Title } from './styled'
 import FilterPill from '../../atoms/FilterPill/FilterPill'
 import { IPost } from '../../../interfaces/Post';
-import { Link, Section } from '../../sections/Footer/styled';
 
-function HeaderPost({ attributes }: IPost) {
+function HeaderPost({ attributes, variant = 'dark'  }: IPost & { variant?: 'dark' | 'light' }) {
 
     const { readTime, title, topic } = attributes;
     
     return (
         <HeaderPostContainer>
-            <CategoryContainer>
-                <FilterPill text={topic} />
+            <CategoryContainer $variant={variant}>
+                <FilterPill text={topic} variant='informative'/>
             </CategoryContainer>
-            <InfoContainer>
-                <Title>{title}</Title>
+            <InfoContainer $variant={variant}>
+                <Title $variant={variant}>{title}</Title>
                 <Section>
-                    <Link>Read</Link>
+                    <Link $variant={variant}>Read</Link>
                     <Detail>{readTime} mins</Detail>
                 </Section>
             </InfoContainer>

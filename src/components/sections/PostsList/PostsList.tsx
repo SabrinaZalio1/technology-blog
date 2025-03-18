@@ -16,7 +16,7 @@ const PostList = () => {
         <NewsGrid>
             {!isLoading && posts.length > 0 && (
                 posts.slice(0, 3).map((post: IPost) => (
-                    <Post key={post.id} post={post} />
+                    <Post key={post.id} post={post} variant='light'/>
                 ))
             )}
 

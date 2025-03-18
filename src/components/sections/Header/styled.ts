@@ -10,4 +10,5 @@ export const HeaderContainer = styled.div`
 `;
 export const NewPostLink = styled.a`
 	color: ${theme.colors.base};
+    cursor: pointer;
 `;

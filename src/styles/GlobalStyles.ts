@@ -1,4 +1,5 @@
 import { createGlobalStyle } from "styled-components";
+import { theme } from "./themes";
 
 const GlobalStyles = createGlobalStyle`
   * {
@@ -11,7 +12,7 @@ const GlobalStyles = createGlobalStyle`
 
   body {
     font-family: Arial, sans-serif;
-    background-color: ${(props) => props.theme.colors.background};
+    background-color: ${theme.colors.background};
     color: ${(props) => props.theme.colors.base};
     font-size: 16px;
   }

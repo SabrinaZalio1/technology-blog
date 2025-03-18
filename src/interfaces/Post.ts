@@ -24,4 +24,5 @@ export  interface IImageData {
   export interface IPost {
     id?: number;
     attributes: IPostAttributes;
+    variant?:string;
   }

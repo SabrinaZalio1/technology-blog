@@ -2,6 +2,7 @@ import styled from "styled-components";
 
 
 export const NewsGrid = styled.div`
+width: 75%;
   display: grid;
   gap: 20px;
   grid-template-columns: 1fr 1fr;

@@ -5,7 +5,7 @@ import { BlogContainer } from "./styled"
 function Blog() {
     return (
         <BlogContainer>
-            {/* <PostList /> */}
+            <PostList />
             <MostViewPosts/>
         </BlogContainer>
     )

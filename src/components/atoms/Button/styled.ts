@@ -47,10 +47,10 @@ export const StyledButton = styled.button<ButtonProps>`
       border: ${styles.border};
       padding: 10px 20px;
       font-size: 16px;
-      border-radius: 4px;
       cursor: ${disabled ? "not-allowed" : "pointer"};
       transition: background 0.3s, border 0.3s;
-
+      font-weight: 500;
+      
       &:hover {
         ${!disabled && css`
           background-color: ${buttonVariants[variant].hover.background};

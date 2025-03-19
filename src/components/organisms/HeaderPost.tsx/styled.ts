@@ -3,9 +3,8 @@ import { theme } from "../../../styles/themes";
 
 export const HeaderPostContainer = styled.div`
   width: 90%;
-  height: 150px;
   position: absolute;
-  bottom: 130px;
+  bottom: 50px;
   left: 50%;
   transform: translateX(-50%);
   padding: 20px;
@@ -20,11 +19,12 @@ export const InfoContainer = styled.div<{ $variant: 'dark' | 'light' }>`
     padding: 20px;
     gap: 20px;
     width: ${({ $variant }) => ($variant === 'dark' && '550px')};
+    height: 150px;
 `;
 export const CategoryContainer = styled.div<{ $variant: 'dark' | 'light' }>`
   background-color: ${({ $variant }) => ($variant === 'dark' ? theme.colors.background : theme.colors.base)};
-  width: 50%;
-  max-width: 212px;
+  width: 60%;
+  max-width: 282px;
   display: flex;
   justify-content: center;
   padding: 10px;

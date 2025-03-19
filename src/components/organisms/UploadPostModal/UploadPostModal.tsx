@@ -4,6 +4,7 @@ import Modal from '@mui/material/Modal';
 import { StyledModalBox, Subtitle, Title } from './styled';
 import { Button as StyledButton } from '../../atoms/Button/Button';
 import Input from '../../atoms/Input/Input';
+import UploadImgButton from '../../molecules/UploadImgButton/UploadImgButton';
 
 interface IUploadPostModal{
   children:any;
@@ -28,7 +29,8 @@ export default function UploadPostModal({children}:IUploadPostModal) {
             <Subtitle>
               Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse commodo libero.
             </Subtitle>
-            <Input placeholder='Post title' value='' />
+            <Input placeholder='Post title' value={''} />
+            <UploadImgButton/>
             <StyledButton variant='black' text='Confirm' />
           </StyledModalBox>
         </>

@@ -1,4 +1,4 @@
-import { MostViewPostsContainer, Title } from './styled'
+import { MostViewPostsContainer, MostViewPostsSection, Title } from './styled'
 import { usePosts } from '../../../hooks/usePosts';
 import Card from '../../molecules/Card/Card';
 import { IPost } from '../../../interfaces/Post';
@@ -10,7 +10,7 @@ function MostViewPosts() {
     if (!posts) return <p>No hay datos disponibles</p>;
    
     return (
-        <>
+        <MostViewPostsSection>
             <Title>Most viewed</Title>
             <MostViewPostsContainer> 
             {!isLoading && posts.length > 0 ? (
@@ -21,7 +21,7 @@ function MostViewPosts() {
                 <p>No hay most views</p>
             )}
             </MostViewPostsContainer>
-        </>
+        </MostViewPostsSection>
     )
 }
 

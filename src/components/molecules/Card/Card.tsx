@@ -1,25 +1,31 @@
 import React from 'react'
 import { CardCotainer, Title } from './styled'
 import { IPost } from '../../../interfaces/Post';
+import styled from 'styled-components';
 
+const Image = styled.img`
+  width: 100px;
+  height: auto;
+  border-radius: 8px;
+`;
 
 function Card(post:IPost) {
-    const { attributes } = post;
-    const { author, body, coverImg, createdAt, publishedAt, readTime, subtitle, title, topic, updatedAt } = attributes;
+    const { attributes } = post?.post;
+    const { coverImg, title} = attributes;
 
 
 
-    // const baseUrl = 'https://lite-tech-api.litebox.ai'
+    const baseUrl = 'https://lite-tech-api.litebox.ai';
+    const coverUrl = coverImg?.data.attributes.url;
+
+    const imageUrl =  `${baseUrl}${coverUrl}`;
     
-// const imageUrl = coverImg?.attributes?.url ? `${baseUrl}${coverImg.attributes.url}` : '';
-    
-console.log('title',title)
+console.log('coverImg',coverImg?.data.attributes.url)
 
   return (
     <CardCotainer>
-        {/* <Title>{title}</Title> */}
-      {/* <img src={imageUrl} alt={title || "Post Image"} /> */}
-      
+        <Title>{title}</Title>
+      <Image src={imageUrl} alt="Imagen de ejemplo" />
     </CardCotainer>
   )
 }

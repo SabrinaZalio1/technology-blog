@@ -6,3 +6,9 @@ export const Title = styled.h3`
   font-size: 18px;
   font-weight: 600;
 `;
+export const MostViewPostsContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  max-width: 450px;
+`;

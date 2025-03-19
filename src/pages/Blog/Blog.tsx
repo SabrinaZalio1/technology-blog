@@ -1,13 +1,13 @@
-// import MostViewPosts from "../../components/sections/MostViewPosts/MostViewPosts"
+import MostViewPosts from "../../components/sections/MostViewPosts/MostViewPosts"
 import PostList from "../../components/sections/PostsList/PostsList"
+import { BlogContainer } from "./styled"
 
 function Blog() {
     return (
-        <div>
-            <PostList />
-            {/* <UploadLoader/> */}
-            {/* <MostViewPosts/> */}
-        </div>
+        <BlogContainer>
+            {/* <PostList /> */}
+            <MostViewPosts/>
+        </BlogContainer>
     )
 }
 

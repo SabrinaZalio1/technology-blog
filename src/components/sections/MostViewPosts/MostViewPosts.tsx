@@ -1,23 +1,27 @@
-import { Title } from './styled'
+import { MostViewPostsContainer, Title } from './styled'
 import { usePosts } from '../../../hooks/usePosts';
 import Card from '../../molecules/Card/Card';
 import { IPost } from '../../../interfaces/Post';
 
 function MostViewPosts() {
     const { posts, isLoading, error } = usePosts();
-
+    if (isLoading) return <p>Cargando...</p>;
+    if (error) return <p>{error}</p>;
+    if (!posts) return <p>No hay datos disponibles</p>;
    
     return (
-        <div>
+        <>
             <Title>Most viewed</Title>
+            <MostViewPostsContainer> 
             {!isLoading && posts.length > 0 ? (
-                posts.map((post: IPost) => (
+                posts.slice(2, 6).map((post: IPost) => (
                     <Card key={post.id} post={post} />
                 ))
             ) : (
                 <p>No hay most views</p>
             )}
-        </div>
+            </MostViewPostsContainer>
+        </>
     )
 }
 

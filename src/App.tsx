@@ -5,6 +5,7 @@ import { Footer } from './components/sections/Footer/Footer'
 import { Header } from './components/sections/Header/Header'
 import { theme } from './styles/themes'
 import TopicFilter from './components/organisms/TopicFilter/TopicFilter'
+import Blog from './pages/Blog/Blog'
 
 const Container = styled.div`
   background-color: ${theme.colors.background};
@@ -20,8 +21,8 @@ function App() {
       <Header/>
       <Banner/>
       <TopicFilter/>
+      <Blog/>
       <Footer/>
-     {/* <Blog/> */}
     </Container>
     </>
   )

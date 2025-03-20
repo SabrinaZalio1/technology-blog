@@ -7,6 +7,7 @@ import { theme } from './styles/themes'
 import TopicFilter from './components/organisms/TopicFilter/TopicFilter'
 import Blog from './pages/Blog/Blog'
 import InfoBanner from './components/molecules/InfoBanner/InfoBanner'
+import UploadPost from './components/sections/UploadPost/UploadPost'
 
 const Container = styled.div`
   background-color: ${theme.colors.background};
@@ -20,9 +21,10 @@ function App() {
     <>
     <Container>
       <Header/>
-      <Banner/>
+      <Banner id={1} />
       <TopicFilter/>
       <Blog/>
+      <UploadPost/>
       <InfoBanner/>
       <Footer/>
     </Container>

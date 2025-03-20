@@ -1,19 +1,23 @@
-import React from 'react'
-import Post from '../../organisms/Post/Post'
-import { usePost } from '../../../hooks/usePosts';
-import { BannerContainer, Title } from './styled';
+import React from "react";
+import Post from "../../organisms/Post/Post";
+import { usePost } from "../../../hooks/usePosts";
+import { BannerContainer, Title } from "./styled";
 
-export default function Banner() {
-    const { post, error, isLoading } = usePost(1);
+interface BannerProps {
+  id?: number; 
+}
 
-if (isLoading) return <p>Cargando...</p>;
-if (error) return <p>{error}</p>;
-if (!post) return <p>No hay datos disponibles</p>;
+export default function Banner({ id = 1 }: BannerProps) {
+  const { post, error, isLoading } = usePost(id);
+
+  if (isLoading) return <p>Cargando...</p>;
+  if (error) return <p>{error}</p>;
+  if (!post) return <p>No hay datos disponibles</p>;
 
   return (
     <BannerContainer>
-        <Title>Today story</Title>
-        <Post post={post} variant='dark'/>
+      <Title>Today story</Title>
+      <Post post={post} variant="dark" />
     </BannerContainer>
-  )
+  );
 }

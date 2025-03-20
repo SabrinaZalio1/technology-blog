@@ -11,7 +11,7 @@ const inputRef = useRef()
       const reader = new FileReader();
       reader.onloadend = () => setImage(reader.result as string);
       reader.readAsDataURL(file);
-      console.log('file', file)
+      // console.log('file', file)
       console.log('file subido correctamente')
     }
   };

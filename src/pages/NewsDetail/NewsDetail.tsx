@@ -1,8 +1,29 @@
+import { useParams } from "react-router-dom";
+import Banner from "../../components/sections/Banner/Banner";
+import { Footer } from "../../components/sections/Footer/Footer";
+import { Header } from "../../components/sections/Header/Header";
+import { Container } from "./styled";
+import { usePost } from "../../hooks/usePosts";
+import PostDetail from "../../components/sections/PostDetail/PostDetail";
 
 function NewsDetail() {
-    return (
-      <div>Blog</div>
-    )
-  }
-  
-  export default NewsDetail
+  const { id } = useParams<{ id: string }>();  
+  const numericId = id ? parseInt(id, 10) : null;
+
+  const { post, isLoading, error } = usePost(numericId || 0);
+
+  if (isLoading) return <p>Cargando...</p>;
+  if (error) return <p>Error: {error}</p>;
+  if (!post) return <p>No se encontró la noticia</p>;
+// console.log('post', post)
+  return (
+    <Container>
+      <Header />
+      <Banner id={numericId || 1} />
+      <PostDetail post={post}/>
+      <Footer />
+    </Container>
+  );
+}
+
+export default NewsDetail;

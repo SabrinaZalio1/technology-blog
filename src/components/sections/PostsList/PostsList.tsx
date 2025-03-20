@@ -6,7 +6,7 @@ import { NewsGrid } from "./styled";
 
 const PostList = () => {
     const { posts, error, isLoading } = usePosts();
-    console.log('posts', posts)
+    // console.log('posts', posts)
 
     if (error) return <p>{error}</p>;
 

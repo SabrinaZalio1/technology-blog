@@ -6,6 +6,7 @@ export const PillContainer = styled.div<{ selected: boolean; variant: "functiona
   justify-content: center;
   align-items: center;
   border-radius: 56px;
+  white-space: nowrap;
   border: 1px solid ${({ selected, variant }) => 
     variant === "informative" ? "#8C8C8C" : selected ? theme.colors.tertiary : "#8C8C8C"};
   background-color: ${({ selected, variant }) => 

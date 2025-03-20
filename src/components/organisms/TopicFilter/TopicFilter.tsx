@@ -9,12 +9,11 @@ function TopicFilter() {
     const topics = posts && posts.map(post => post?.attributes.topic);
     const uniqueTopics = [...new Set(topics)];
 
-    console.log(uniqueTopics);
     return (
         <TopicFilterContainer>
             <Title>Topics</Title>
-            {uniqueTopics.map(topic => (
-                <FilterPill text={topic} />
+            {uniqueTopics.map((topic, index) => (
+                <FilterPill key={index} text={topic} />
             ))}
         </TopicFilterContainer>
     )

@@ -8,7 +8,7 @@ export default function RelatedPosts() {
         <RelatedPostsContainer>
             <RelatedPostsHeader>
                 <Title>Related posts</Title>
-                <NewPostBtn/>
+                <NewPostBtn arrowColor='#9C73F7'/>
             </RelatedPostsHeader>
             <RelatedPostListContainer>
                 <RelatedPostList />

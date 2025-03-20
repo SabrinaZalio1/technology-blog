@@ -11,23 +11,22 @@ export type InputProps = {
     error?: string;
   };
 
-const Input: React.FC<InputProps> = ({ label, type = "text", value, onChange, placeholder, disabled, error }) => {
-  const isActive = value.length > 0;
-
-  return (
-    <InputContainer>
-      {placeholder && <Label $isActive={isActive}>{placeholder}</Label>}
-      <StyledInput
-        type={type} 
-        value={value} 
-        onChange={onChange} 
-        placeholder={!isActive ? placeholder : ""} 
-        disabled={disabled} 
-        $error={!!error} 
-      />
-      {error && <ErrorText>{error}</ErrorText>}
-    </InputContainer>
-  );
-};
-
-export default Input;
+  export const Input: React.FC<InputProps> = ({ label, type = "text", value, onChange, placeholder, disabled, error }) => {
+    const isActive = value.length > 0;
+  
+    return (
+      <InputContainer>
+        {label && <Label $isActive={isActive}>{label}</Label>}
+        <StyledInput
+          type={type} 
+          value={value} 
+          onChange={onChange} 
+          placeholder={placeholder} 
+          disabled={disabled} 
+          $error={!!error} 
+        />
+        {error && <ErrorText>{error}</ErrorText>}
+      </InputContainer>
+    );
+  };
+  

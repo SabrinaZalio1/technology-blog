@@ -7,7 +7,7 @@ export const Header = () => {
     return (
         <HeaderContainer>
             <Logo />
-            <NewPostBtn/>
+            <NewPostBtn textColor='#fff'/>
         </HeaderContainer>
     );
 };

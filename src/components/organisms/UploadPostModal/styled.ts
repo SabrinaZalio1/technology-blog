@@ -13,6 +13,18 @@ export const Subtitle = styled.h3`
   font-size: 18px;
   font-weight: 400;
 `;
+export const CrossContainer = styled.div`
+  position: absolute;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
+`;
+export const Section = styled.div`
+  display: flex;
+  gap: 10px;
+  flex-direction: column;
+  width: 80%;
+`;
 
 
 export const StyledModalBox = styled(Box)`

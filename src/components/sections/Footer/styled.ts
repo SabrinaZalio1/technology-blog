@@ -36,6 +36,18 @@ export const Link = styled.a`
    font-weight: 600;
    color:${theme.colors.background};
 `;
+
+export const ContainerLink = styled.div`
+    transition: all .2s ease;
+        &:hover { 
+    transform: scale(1.1);
+   }
+`;
+export const IconsSection = styled.div`
+    display: flex;
+    gap:15px;
+`;
+
 export const Detail = styled.p`
 	color: ${theme.colors.base};
     font-size:14px;
@@ -44,4 +56,5 @@ export const Detail = styled.p`
         max-width: 152px;
     }
 `;
+
 

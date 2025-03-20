@@ -5,9 +5,10 @@ import { BannerContainer, Title } from "./styled";
 
 interface BannerProps {
   id?: number; 
+  title?:boolean;
 }
 
-export default function Banner({ id = 1 }: BannerProps) {
+export default function Banner({ id = 1, title=false }: BannerProps) {
   const { post, error, isLoading } = usePost(id);
 
   if (isLoading) return <p>Cargando...</p>;
@@ -16,7 +17,7 @@ export default function Banner({ id = 1 }: BannerProps) {
 
   return (
     <BannerContainer>
-      <Title>Today story</Title>
+      {title && <Title>Today story</Title>}
       <Post post={post} variant="dark" />
     </BannerContainer>
   );

@@ -7,7 +7,7 @@ interface PostContainerProps {
 export const PostContainer = styled.div<PostContainerProps>`
    background-image: ${({ backgroundImg }) => `url(${backgroundImg})`};
    width: 100%;
-   height: 100vh;
+   height: 100%;
    background-size: cover;
    background-position: center;
    position:relative

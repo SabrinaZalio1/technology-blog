@@ -5,5 +5,6 @@ export const Title = styled.h2`
     margin-bottom: 20px;
 `;
 export const BannerContainer = styled.div`
-    margin: 20px 0;
+    /* margin: 20px 0; */
+    height: 70vh;
 `;

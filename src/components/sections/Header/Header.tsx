@@ -1,13 +1,13 @@
-import ArrowRight from "../../../assets/icons/ArrowRight";
 import Logo from "../../atoms/Logo/Logo";
-import { HeaderContainer, NewPostLink } from "./styled";
+import NewPostBtn from "../../atoms/NewPostBtn/NewPostBtn";
+import { HeaderContainer } from "./styled";
 
 
 export const Header = () => {
     return (
         <HeaderContainer>
             <Logo />
-            <NewPostLink>New Post <ArrowRight/></NewPostLink>
+            <NewPostBtn/>
         </HeaderContainer>
     );
 };

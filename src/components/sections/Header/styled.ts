@@ -8,7 +8,7 @@ export const HeaderContainer = styled.div`
     align-items: center;
     justify-content: space-between;
 `;
-export const NewPostLink = styled.a`
-	color: ${theme.colors.base};
-    cursor: pointer;
-`;
+// export const NewPostLink = styled.a`
+// 	color: ${theme.colors.base};
+//     cursor: pointer;
+// `;

@@ -1,10 +1,7 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
-  background: grey;
-  padding: 16px;
-  width: 300px;
-  font-family: Arial, sans-serif;
+ 
 `;
 
 export const ProgressBar = styled.div<{ progress: number; color: string }>`

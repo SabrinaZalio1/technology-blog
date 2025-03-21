@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const Label = styled.label<{ $isActive: boolean }>`
   position: absolute;
-  left: 12px;
+  left: 13px;
   top: ${({ $isActive }) => ($isActive ? "4px" : "50%")};
   transform: translateY(${({ $isActive }) => ($isActive ? "0" : "-50%")});
   font-size: ${({ $isActive }) => ($isActive ? "10px" : "16px")};

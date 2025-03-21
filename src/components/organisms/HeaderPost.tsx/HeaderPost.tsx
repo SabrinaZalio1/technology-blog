@@ -1,6 +1,7 @@
 import { CategoryContainer, Detail, HeaderPostContainer, InfoContainer, Link, Section, Title } from './styled'
 import FilterPill from '../../atoms/FilterPill/FilterPill'
 import { IPost } from '../../../interfaces/Post';
+import BtnLink from '../../atoms/BtnLink/BtnLink';
 
 function HeaderPost({ attributes, variant = 'dark'  }: IPost & { variant?: 'dark' | 'light' }) {
 
@@ -14,7 +15,7 @@ function HeaderPost({ attributes, variant = 'dark'  }: IPost & { variant?: 'dark
             <InfoContainer $variant={variant}>
                 <Title $variant={variant}>{title}</Title>
                 <Section>
-                    <Link $variant={variant}>Read</Link>
+                    <BtnLink text='Read' textColor='white' arrowColor='#9C73F7'/>
                     <Detail>{readTime} mins</Detail>
                 </Section>
             </InfoContainer>

@@ -1,4 +1,4 @@
-import { createGlobalStyle } from "styled-components";
+import styled, { createGlobalStyle } from "styled-components";
 import { theme } from "./themes";
 
 const GlobalStyles = createGlobalStyle`
@@ -17,5 +17,17 @@ const GlobalStyles = createGlobalStyle`
     font-size: 16px;
   }
 `;
+export const SkeletonLoader = styled.div`
+  width: 100%;
+  height: 100%;
+  /* background: linear-gradient(90deg, #f3f3f3 25%, #ecebeb 50%, #f3f3f3 75%); */
+  background-color: red;
+  background-size: 400% 100%;
+  animation: loading 1.5s infinite;
 
+  @keyframes loading {
+    0% { background-position: 100% 0; }
+    100% { background-position: -100% 0; }
+  }
+`;
 export default GlobalStyles;

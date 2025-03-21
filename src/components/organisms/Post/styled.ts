@@ -11,4 +11,5 @@ export const PostContainer = styled.div<PostContainerProps>`
    background-size: cover;
    background-position: center;
    position:relative
+   
 `;

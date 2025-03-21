@@ -15,15 +15,28 @@ export const Subtitle = styled.h3`
 `;
 export const CrossContainer = styled.div`
   position: absolute;
-    top: 10px;
-    right: 10px;
-    cursor: pointer;
+  top: 10px;
+  right: 10px;
+  cursor: pointer;
 `;
 export const Section = styled.div`
   display: flex;
   gap: 10px;
   flex-direction: column;
   width: 80%;
+`;
+export const Container = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+
+`;
+export const Btn = styled.button`
+  width: 100%;
+  @media (min-width: ${theme.breakpoints.mobile}) {
+    max-width: 152px;
+  }
 `;
 
 
@@ -42,6 +55,10 @@ export const StyledModalBox = styled(Box)`
   flex-direction: column;
   text-align: center;
   max-width: 600px;
-  height: 80vh;
-  width: 70%;
+  width: 80%;
+  
+  @media (min-width: ${theme.breakpoints.mobile}) {
+    height: 80vh;
+    width: 70%;
+  }
 `;

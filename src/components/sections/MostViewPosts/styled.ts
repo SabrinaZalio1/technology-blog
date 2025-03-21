@@ -14,4 +14,7 @@ export const MostViewPostsContainer = styled.div`
 `;
 export const MostViewPostsSection = styled.div`
 width: 25%;
+@media (max-width: ${theme.breakpoints.tablet}) {
+  display: none;
+}
 `;

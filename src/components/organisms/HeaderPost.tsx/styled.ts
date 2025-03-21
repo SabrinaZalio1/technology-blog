@@ -4,7 +4,7 @@ import { theme } from "../../../styles/themes";
 export const HeaderPostContainer = styled.div`
   width: 90%;
   position: absolute;
-  bottom: 50px;
+  bottom: 20px;
   left: 50%;
   transform: translateX(-50%);
   padding: 20px;
@@ -18,8 +18,8 @@ export const InfoContainer = styled.div<{ $variant: 'dark' | 'light' }>`
     justify-content: center;
     padding: 20px;
     gap: 20px;
-    width: ${({ $variant }) => ($variant === 'dark' && '550px')};
-    height: 150px;
+    max-width: ${({ $variant }) => ($variant === 'dark' && '550px')};
+    /* max-height: 160px; */
 `;
 export const CategoryContainer = styled.div<{ $variant: 'dark' | 'light' }>`
   background-color: ${({ $variant }) => ($variant === 'dark' ? theme.colors.background : theme.colors.base)};
@@ -28,6 +28,7 @@ export const CategoryContainer = styled.div<{ $variant: 'dark' | 'light' }>`
   display: flex;
   justify-content: center;
   padding: 10px;
+  margin-bottom: -1px;
 `;
 export const Section = styled.div`
 display: flex;
@@ -39,6 +40,10 @@ export const Title = styled.h2<{ $variant: 'dark' | 'light' }>`
   font-weight: 700;
   font-size: ${({ $variant }) => ($variant === 'dark' ? '41px' : '21px;')};
   color: ${({ $variant }) => ($variant === 'dark' ? theme.colors.base : 'black')};
+
+  @media (max-width: 768px) {
+    font-size: ${({ $variant }) => ($variant === 'dark' ? '18px' : '21px;')};
+  }
 `;
 
 export const Detail = styled.span`

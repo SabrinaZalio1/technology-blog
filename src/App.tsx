@@ -13,6 +13,9 @@ const Container = styled.div`
   background-color: ${theme.colors.background};
   width: 100%;
   padding: 0 40px;
+  @media (max-width: ${theme.breakpoints.mobile}) {
+    padding: 0 20px;
+  }
 `
 
 function App() {
@@ -24,7 +27,7 @@ function App() {
       <Banner id={1} title/>
       <TopicFilter/>
       <Blog/>
-      <UploadPost/>
+      {/* <UploadPost/> */}
       <InfoBanner/>
       <Footer/>
     </Container>

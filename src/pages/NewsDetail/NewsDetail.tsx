@@ -16,7 +16,7 @@ function NewsDetail() {
   if (isLoading) return <p>Cargando...</p>;
   if (error) return <p>Error: {error}</p>;
   if (!post) return <p>No se encontró la noticia</p>;
-// console.log('post', post)
+
   return (
     <Container>
       <Header />

@@ -1,11 +1,13 @@
-import React, { useState } from "react";
+import React from "react";
 import { BarWrapper, Button, Container, ProgressBar, Text } from "./styled";
 
+interface UploadLoaderProps {
+  status: "loading" | "error" | "success";
+  progress: number;
+  onRetry: () => void;
+}
 
-const UploadLoader: React.FC = () => {
-  const [status, setStatus] = useState<"loading" | "error" | "success">("loading");
-  const [progress, setProgress] = useState(60);
-
+const UploadLoader: React.FC<UploadLoaderProps> = ({ status, progress, onRetry }) => {
   return (
     <Container>
       {status === "loading" && (
@@ -14,7 +16,7 @@ const UploadLoader: React.FC = () => {
           <BarWrapper>
             <ProgressBar progress={progress} color="black" />
           </BarWrapper>
-          <Button onClick={() => setStatus("error")}>Cancel</Button>
+          <Button onClick={onRetry}>Cancel</Button>
         </>
       )}
 
@@ -24,7 +26,7 @@ const UploadLoader: React.FC = () => {
           <BarWrapper>
             <ProgressBar progress={100} color="red" />
           </BarWrapper>
-          <Button onClick={() => setStatus("loading")}>Retry</Button>
+          <Button onClick={onRetry}>Retry</Button>
         </>
       )}
 

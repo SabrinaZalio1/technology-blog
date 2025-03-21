@@ -18,4 +18,9 @@ export const PillContainer = styled.div<{ selected: boolean; variant: "functiona
   min-height: 30px;
   cursor: ${({ variant }) => (variant === "informative" ? "default" : "pointer")};
   transition: all 0.3s ease-in-out;
+font-size: 16px;
+
+  @media (max-width: ${theme.breakpoints.mobile}) {
+    font-size: 14px;
+  }
 `;

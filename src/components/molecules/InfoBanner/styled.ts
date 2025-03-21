@@ -10,12 +10,16 @@ export const InfoBannerContainer = styled.div`
   padding: 20px 30px;
   background-color: ${theme.colors.secondaryBackground};
   margin: 30px 0;
-  height: 120px;
+  /* max-height: 120px; */
 
   @media (max-width: ${mobile}) {
+    display: flex;
     flex-direction: column;
     gap: 20px;
-    padding: 20px 10px;
+    padding: 30px;
+  }
+  @media (min-width: ${mobile}) {
+   height: 120px;
   }
 `;
 

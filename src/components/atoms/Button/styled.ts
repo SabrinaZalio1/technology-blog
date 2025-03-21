@@ -50,6 +50,7 @@ export const StyledButton = styled.button<ButtonProps>`
       cursor: ${disabled ? "not-allowed" : "pointer"};
       transition: background 0.3s, border 0.3s;
       font-weight: 500;
+      width: 100%;
       
       &:hover {
         ${!disabled && css`

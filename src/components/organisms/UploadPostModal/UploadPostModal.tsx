@@ -1,5 +1,4 @@
 import * as React from 'react';
-import Button from '@mui/material/Button';
 import Modal from '@mui/material/Modal';
 import { Btn, ButtonContainer, Container, CrossContainer, Section, StyledModalBox, Subtitle, Title } from './styled';
 import { Button as StyledButton } from '../../atoms/Button/Button';
@@ -9,7 +8,7 @@ import { Input } from '../../atoms/Input/Input';
 import UploadLoader from '../../molecules/UploadLoader/UploadLoader';
 
 interface IUploadPostModal {
-  children: any;
+  children: React.ReactElement;
 }
 export default function UploadPostModal({ children }: IUploadPostModal) {
   const [open, setOpen] = React.useState(false);

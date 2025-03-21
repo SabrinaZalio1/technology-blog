@@ -1,10 +1,23 @@
-import { CategoryContainer, Detail, HeaderPostContainer, InfoContainer, Link, Section, Title } from './styled'
+import { 
+    CategoryContainer, 
+    Detail, 
+    HeaderPostContainer, 
+    InfoContainer, 
+    Section, 
+    Title 
+} from './styled';
 import FilterPill from '../../atoms/FilterPill/FilterPill'
 import { IPost } from '../../../interfaces/Post';
 import BtnLink from '../../atoms/BtnLink/BtnLink';
 
-function HeaderPost({ attributes, variant = 'dark'  }: IPost & { variant?: 'dark' | 'light' }) {
+interface HeaderPostProps {
+    attributes: IPost['post']['attributes'];
+    variant?: 'dark' | 'light';
+}
 
+const DEFAULT_VARIANT: 'dark' | 'light' = 'dark';
+
+const HeaderPost: React.FC<HeaderPostProps> = ({ attributes, variant = DEFAULT_VARIANT }) => {
     const { readTime, title, topic } = attributes;
     
     return (

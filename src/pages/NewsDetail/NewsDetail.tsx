@@ -6,7 +6,6 @@ import { Container } from "./styled";
 import { usePost } from "../../hooks/usePosts";
 import PostDetail from "../../components/sections/PostDetail/PostDetail";
 import RelatedPosts from "../../components/sections/RelatedPosts/RelatedPosts";
-import SimpleSlider from "../../components/organisms/SliderCarousel";
 import SliderCarousel from "../../components/organisms/SliderCarousel";
 
 function NewsDetail() {

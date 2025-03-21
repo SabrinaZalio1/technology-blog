@@ -30,4 +30,13 @@ export const SkeletonLoader = styled.div`
     100% { background-position: -100% 0; }
   }
 `;
+
+export const AppContainer = styled.div`
+  background-color: ${theme.colors.background};
+  width: 100%;
+  padding: 0 40px;
+  @media (max-width: ${theme.breakpoints.mobile}) {
+    padding: 0 20px;
+  }
+`
 export default GlobalStyles;

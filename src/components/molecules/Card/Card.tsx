@@ -1,4 +1,4 @@
-import { CardCotainer, Image, ImageWrapper, LoaderContainer, Title } from './styled'
+import { CardContainer, CardSection, Image, ImageWrapper, LoaderContainer, Title } from './styled'
 import { IPost } from '../../../interfaces/Post';
 import { useState } from 'react';
 import { CircularProgress } from '@mui/material';
@@ -14,24 +14,23 @@ function Card(post: IPost) {
   const imageUrl = `${baseUrl}${coverUrl}`;
 
   return (
-    <CardCotainer>
+    <CardContainer>
       <Title>{title}</Title>
-      <div style={{ position: 'relative' }}>
-         <ImageWrapper>
-                
-         {isLoading && (
-          <LoaderContainer>
-            <CircularProgress size="30px" color="inherit"/>
-          </LoaderContainer>
-        )}
-                <Image 
-                    src={imageUrl} 
-                    onLoad={() => setIsLoading(false)} 
-                    $isLoading={isLoading}  
-                />
-            </ImageWrapper>
-      </div>
-    </CardCotainer>
+      <CardSection>
+        <ImageWrapper>
+          {isLoading && (
+            <LoaderContainer>
+              <CircularProgress size="30px" color="inherit" />
+            </LoaderContainer>
+          )}
+          <Image
+            src={imageUrl}
+            onLoad={() => setIsLoading(false)}
+            $isLoading={isLoading}
+          />
+        </ImageWrapper>
+      </CardSection>
+    </CardContainer>
   )
 }
 

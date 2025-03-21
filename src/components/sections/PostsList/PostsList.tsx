@@ -14,8 +14,8 @@ const PostList = ({ variant = "default" }: PostListProps) => {
     if (isLoading) return <div>Cargando...</div>;
 
 
-    const firstPosts = posts.slice(0, 3);
-    const secondPosts = posts.slice(3, 6);
+    const firstPosts = posts.slice(1, 4);
+    const secondPosts = posts.slice(4, 7);
     
     const selectedPosts = variant === "default" ? firstPosts : secondPosts;
 

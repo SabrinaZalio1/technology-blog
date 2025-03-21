@@ -1,4 +1,3 @@
-import React from 'react'
 import RelatedPostList from '../../organisms/RelatedPostList/RelatedPostList'
 import { RelatedPostListContainer, RelatedPostsContainer, RelatedPostsHeader, Title } from './styled'
 import BtnLink from '../../atoms/BtnLink/BtnLink'

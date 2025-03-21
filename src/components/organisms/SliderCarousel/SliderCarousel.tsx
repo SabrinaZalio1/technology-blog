@@ -1,16 +1,9 @@
 import Slider from "react-slick";
-import styled from "styled-components";
-import { usePosts } from "../../hooks/usePosts";
-import { IPost } from "../../interfaces/Post";
-import Post from "./Post/Post";
-import { theme } from "../../styles/themes";
+import { usePosts } from "../../../hooks/usePosts";
+import { IPost } from "../../../interfaces/Post";
+import Post from "../Post/Post";
+import { SliderContainer } from "./styled";
 
-export const SliderContainer = styled.div`
-display: block;
-  @media (min-width: ${theme.breakpoints.tablet}) {
-    display: none;
-  } 
-`;
 
 export default function SliderCarousel() {
     const { posts, error, isLoading } = usePosts();

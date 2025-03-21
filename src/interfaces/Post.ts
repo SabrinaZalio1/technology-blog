@@ -24,5 +24,6 @@ export  interface IImageData {
   export interface IPost {
     id?: number;
     attributes: IPostAttributes;
-    variant?: "dark" | "light"; 
+    variant?: "dark" | "light";
+  headerVariant?: 'pill' | 'author'
   }

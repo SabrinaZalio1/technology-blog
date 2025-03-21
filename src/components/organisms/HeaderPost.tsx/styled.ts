@@ -27,7 +27,7 @@ export const CategoryContainer = styled.div<{ $variant: 'dark' | 'light' }>`
   max-width: 282px;
   display: flex;
   justify-content: center;
-  padding: 10px;
+  padding: 20px 10px;
   margin-bottom: -1px;
 `;
 export const Section = styled.div`

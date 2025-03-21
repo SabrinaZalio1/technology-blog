@@ -4,7 +4,7 @@ import HeaderPost from '../HeaderPost.tsx/HeaderPost';
 import defaultBackground from './../../../assets/defaultImg.jpg';
 import { useEffect } from 'react';
 
-export default function Post({ post, variant }: IPost) {
+export default function Post({ post, variant, headerVariant }: IPost & { headerVariant?: 'pill' | 'author' }) {
     const { attributes } = post || {}; 
     const coverImg = attributes?.coverImg || null;
 
@@ -24,7 +24,7 @@ export default function Post({ post, variant }: IPost) {
 
     return (
         <PostContainer backgroundimg={imageUrl}>
-            <HeaderPost attributes={attributes} variant={variant} />
+            <HeaderPost attributes={attributes} variant={variant} headerVariant={headerVariant}/>
         </PostContainer>
     );
 }

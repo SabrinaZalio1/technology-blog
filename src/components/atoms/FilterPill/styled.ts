@@ -13,12 +13,13 @@ export const PillContainer = styled.div<{ selected: boolean; variant: "functiona
     variant === "informative" ? "transparent" : selected ? theme.colors.tertiary : "transparent"};
   color: ${({ selected, variant }) => 
     variant === "informative" ? "#8C8C8C" : selected ? theme.colors.background : "#8C8C8C"};
-  padding: 7px 12px;
-  width: fit-content;
+  padding: 10px 12px;
+  width: 80%;
   min-height: 30px;
   cursor: ${({ variant }) => (variant === "informative" ? "default" : "pointer")};
   transition: all 0.3s ease-in-out;
 font-size: 16px;
+max-width: 220px;
 
   @media (max-width: ${theme.breakpoints.mobile}) {
     font-size: 14px;

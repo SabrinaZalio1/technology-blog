@@ -23,7 +23,7 @@ export default function Post({ post, variant }: IPost) {
     }, [imageUrl]);
 
     return (
-        <PostContainer backgroundImg={imageUrl}>
+        <PostContainer backgroundimg={imageUrl}>
             <HeaderPost attributes={attributes} variant={variant} />
         </PostContainer>
     );

@@ -6,6 +6,8 @@ import { Container } from "./styled";
 import { usePost } from "../../hooks/usePosts";
 import PostDetail from "../../components/sections/PostDetail/PostDetail";
 import RelatedPosts from "../../components/sections/RelatedPosts/RelatedPosts";
+import SimpleSlider from "../../components/organisms/SliderCarousel";
+import SliderCarousel from "../../components/organisms/SliderCarousel";
 
 function NewsDetail() {
   const { id } = useParams<{ id: string }>();  
@@ -23,6 +25,7 @@ function NewsDetail() {
       <Banner id={numericId || 1} />
       <PostDetail post={post}/>
       <RelatedPosts/>
+      <SliderCarousel/>
       <Footer />
     </Container>
   );

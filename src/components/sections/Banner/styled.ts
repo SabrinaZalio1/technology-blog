@@ -10,5 +10,5 @@ export const Title = styled.h2`
 `;
 
 export const BannerContainer = styled.div`
-    height: 70vh;
+    height: 64vh;
 `;

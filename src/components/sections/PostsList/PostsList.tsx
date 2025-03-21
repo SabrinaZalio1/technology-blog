@@ -1,26 +1,34 @@
 import { usePosts } from "../../../hooks/usePosts";
 import { IPost } from "../../../interfaces/Post";
 import Post from "../../organisms/Post/Post";
-import { NewsGrid } from "./styled";
+import { StyledNewsGrid } from "./styled";
 
+interface PostListProps {
+    variant?: "default" | "reversed";
+}
 
-const PostList = () => {
+const PostList = ({ variant = "default" }: PostListProps) => {
     const { posts, error, isLoading } = usePosts();
-    // console.log('posts', posts)
 
     if (error) return <p>{error}</p>;
+    if (isLoading) return <div>Cargando...</div>;
 
-    if (isLoading) return <div>Cargando...</div>
+
+    const firstPosts = posts.slice(0, 3);
+    const secondPosts = posts.slice(3, 6);
+    
+    const selectedPosts = variant === "default" ? firstPosts : secondPosts;
 
     return (
-        <NewsGrid>
-            {!isLoading && posts.length > 0 && (
-                posts.slice(0, 3).map((post: IPost) => (
-                    <Post key={post.id} post={post} variant='light'/>
+        <StyledNewsGrid variant={variant}>
+            {selectedPosts.length > 0 ? (
+                selectedPosts.map((post: IPost) => (
+                    <Post key={post.id} post={post} variant="light" />
                 ))
+            ) : (
+                <p>No hay suficientes posts para mostrar.</p>
             )}
-
-        </NewsGrid>
+        </StyledNewsGrid>
     );
 };
 

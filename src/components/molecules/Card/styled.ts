@@ -6,6 +6,7 @@ export const CardCotainer = styled.div`
   padding: 10px 0;
   gap: 20px;
   border-bottom: 1px solid ${theme.colors.gray};
+  justify-content: space-between;
 `;
 
 export const Title = styled.p`
@@ -13,16 +14,9 @@ export const Title = styled.p`
   width: 220px;
 `;
 
-// export const Image = styled.img`
-//   width: 80px;
-//   height: 80px;
-// `;
 
 export const ImageWrapper = styled.div`
   position: relative;
-  /* display: flex;
-  justify-content: center;
-  align-items: center; */
   width: 80px;
   height: 80px;
 `;

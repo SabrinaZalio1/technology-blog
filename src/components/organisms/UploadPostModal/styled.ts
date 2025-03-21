@@ -32,6 +32,10 @@ export const Container = styled.div`
   gap: 20px;
 
 `;
+export const ButtonContainer = styled.div`
+ width: 132px;
+
+`;
 export const Btn = styled.button`
   width: 100%;
   @media (min-width: ${theme.breakpoints.mobile}) {
@@ -56,6 +60,7 @@ export const StyledModalBox = styled(Box)`
   text-align: center;
   max-width: 600px;
   width: 80%;
+  height: 80%;
   
   @media (min-width: ${theme.breakpoints.mobile}) {
     height: 80vh;

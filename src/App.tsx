@@ -27,8 +27,6 @@ function App() {
       <Banner id={1} title/>
       <TopicFilter/>
       <Blog/>
-      {/* <UploadPost/> */}
-      <InfoBanner/>
       <Footer/>
     </Container>
     </>

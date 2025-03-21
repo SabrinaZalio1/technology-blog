@@ -1,7 +1,7 @@
 import * as React from 'react';
 import Button from '@mui/material/Button';
 import Modal from '@mui/material/Modal';
-import { Btn, Container, CrossContainer, Section, StyledModalBox, Subtitle, Title } from './styled';
+import { Btn, ButtonContainer, Container, CrossContainer, Section, StyledModalBox, Subtitle, Title } from './styled';
 import { Button as StyledButton } from '../../atoms/Button/Button';
 import UploadImgButton from '../../molecules/UploadImgButton/UploadImgButton';
 import Cross from '../../../assets/icons/Cross';
@@ -49,24 +49,26 @@ export default function UploadPostModal({ children }: IUploadPostModal) {
             <Cross />
           </CrossContainer>
           <Container>
-          <Title>Upload your post</Title>
-          <Subtitle>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse commodo libero.</Subtitle>
-          <Section>
-            <Input
-              label="Post Title"
-              type="text"
-              value={name}
-              onChange={(e) => setName(e.target.value)}
-              placeholder="Post Title"
-            />
+            <Title>Upload your post</Title>
+            <Subtitle>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse commodo libero.</Subtitle>
+            <Section>
+              <Input
+                label="Post Title"
+                type="text"
+                value={name}
+                onChange={(e) => setName(e.target.value)}
+                placeholder="Post Title"
+              />
 
-            {uploadStatus === "idle" && <UploadImgButton onUploadStart={handleUploadStart} />}
+              {uploadStatus === "idle" && <UploadImgButton onUploadStart={handleUploadStart} />}
 
-            {(uploadStatus === "loading" || uploadStatus === "error" || uploadStatus === "success") && (
-              <UploadLoader status={uploadStatus} progress={progress} onRetry={handleRetry} />
-            )}
-          </Section>
-          <StyledButton variant="black" text="Confirm" />
+              {(uploadStatus === "loading" || uploadStatus === "error" || uploadStatus === "success") && (
+                <UploadLoader status={uploadStatus} progress={progress} onRetry={handleRetry} />
+              )}
+            </Section>
+            <ButtonContainer>
+              <StyledButton variant="black" text="Confirm" />
+            </ButtonContainer>
           </Container>
         </StyledModalBox>
       </Modal>

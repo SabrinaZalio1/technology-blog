@@ -26,9 +26,7 @@ const HeaderPost: React.FC<HeaderPostProps> = ({ attributes, variant = DEFAULT_V
         <HeaderPostContainer>
             <CategoryContainer $variant={variant}>
             {headerVariant === 'pill' ? (
-               
                     <FilterPill text={topic} variant='informative'/>
-               
             ) : (
                 <AuthorPost author={author}/>
             )}

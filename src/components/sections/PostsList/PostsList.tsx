@@ -9,7 +9,7 @@ interface PostListProps {
 
 const PostList = ({ variant = "default" }: PostListProps) => {
     const { posts, error, isLoading } = usePosts();
-
+console.log('posts',posts)
     if (error) return <p>{error}</p>;
     if (isLoading) return <div>Cargando...</div>;
 

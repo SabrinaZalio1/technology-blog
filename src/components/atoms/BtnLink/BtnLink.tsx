@@ -1,15 +1,19 @@
-import React from 'react'
 import ArrowRight from '../../../assets/icons/ArrowRight'
-import { NewPostLink } from './styled'
+import { StyledLink } from './styled'
 
-interface BtnLinkProps  {
-  arrowColor?: string;
-  text?:string;
-  textColor?: string;
+  interface BtnLinkProps {
+    to: string;
+    text: string;
+    variant?: "dark" | "light";
+      arrowColor?: string;
 }
 
-export default function BtnLink({arrowColor, textColor='#000', text='New Post'}:BtnLinkProps) {
+export default function BtnLink({ arrowColor,  to, text, variant = "dark"}: BtnLinkProps) {
   return (
-     <NewPostLink textColor={textColor}>{text} <ArrowRight color={arrowColor}/></NewPostLink>
+    <>
+      <StyledLink to={to} $variant={variant} >
+        {text} <ArrowRight color={arrowColor} />
+      </StyledLink>
+    </>
   )
 }

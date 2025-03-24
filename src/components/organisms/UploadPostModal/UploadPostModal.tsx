@@ -6,39 +6,24 @@ import UploadImgButton from '../../molecules/UploadImgButton/UploadImgButton';
 import Cross from '../../../assets/icons/Cross';
 import { Input } from '../../atoms/Input/Input';
 import UploadLoader from '../../molecules/UploadLoader/UploadLoader';
+import { useUploadPostModal } from './hook/useUploadPostModal';
 
 interface IUploadPostModal {
   children: React.ReactElement;
 }
 export default function UploadPostModal({ children }: IUploadPostModal) {
-  const [open, setOpen] = React.useState(false);
-  const [name, setName] = React.useState("");
+  const {
+    open,
+    name,
+    setName,
+    uploadStatus,
+    progress,
+    handleOpen,
+    handleClose,
+    handleUploadStart,
+    handleRetry,
+  } = useUploadPostModal();
 
-  const handleOpen = () => setOpen(true);
-  const handleClose = () => setOpen(false);
-
-  const [uploadStatus, setUploadStatus] = React.useState<"idle" | "loading" | "error" | "success">("idle");
-  const [progress, setProgress] = React.useState(0);
-
-  const handleUploadStart = () => {
-    setUploadStatus("loading");
-    setProgress(0);
-
-    const interval = setInterval(() => {
-      setProgress((prev) => {
-        if (prev >= 100) {
-          clearInterval(interval);
-          setUploadStatus("success");
-          return 100;
-        }
-        return prev + 20;
-      });
-    }, 500);
-  };
-
-  const handleRetry = () => {
-    setUploadStatus("idle");
-  };
   return (
     <>
       <Btn onClick={handleOpen}>{children}</Btn>
@@ -59,11 +44,12 @@ export default function UploadPostModal({ children }: IUploadPostModal) {
                 placeholder="Post Title"
               />
 
-              {uploadStatus === "idle" && <UploadImgButton onUploadStart={handleUploadStart} />}
+              {uploadStatus === "initial" && <UploadImgButton onUploadStart={handleUploadStart} />}
 
               {(uploadStatus === "loading" || uploadStatus === "error" || uploadStatus === "success") && (
                 <UploadLoader status={uploadStatus} progress={progress} onRetry={handleRetry} />
               )}
+
             </Section>
             <ButtonContainer>
               <StyledButton variant="black" text="Confirm" />

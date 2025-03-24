@@ -16,13 +16,13 @@ export default function Post({ post, variant, headerVariant }: IPost & { headerV
     useEffect(() => {
         const img = new Image();
         img.src = imageUrl;
-        img.onload = () => setImgLoaded(true); // Cuando la imagen se carga, cambia el estado
+        img.onload = () => setImgLoaded(true); 
     }, [imageUrl]);
 
     return (
         <PostContainer backgroundimg={imgLoaded ? imageUrl : 'none'} imgLoaded={imgLoaded}>
             <div className="overlay"></div>
-            <HeaderPost attributes={attributes} variant={variant} headerVariant={headerVariant} />
+            <HeaderPost post={post} variant={variant} headerVariant={headerVariant} />
         </PostContainer>
     );
 }

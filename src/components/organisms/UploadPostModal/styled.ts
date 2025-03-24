@@ -36,8 +36,9 @@ export const ButtonContainer = styled.div`
  width: 132px;
 
 `;
-export const Btn = styled.button`
+export const Btn = styled.div`
   width: 100%;
+  /* background-color: transparent; */
   @media (min-width: ${theme.breakpoints.mobile}) {
     max-width: 152px;
   }

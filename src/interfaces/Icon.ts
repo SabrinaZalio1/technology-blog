@@ -1,4 +1,4 @@
 export interface IIcon {
-    color?:string;
-    size?:number;
+   color?: string;
+   size?: number;
 }

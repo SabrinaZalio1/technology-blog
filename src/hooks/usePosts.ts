@@ -1,5 +1,5 @@
-import { useEffect, useState } from "react";
-import { getPost, getPosts } from "../service/index.service";
+import { useEffect, useState } from 'react';
+import { getPost, getPosts } from '../service/index.service';
 
 export function usePosts() {
   const [posts, setPosts] = useState<[]>([]);
@@ -8,10 +8,10 @@ export function usePosts() {
 
   useEffect(() => {
     getPosts()
-      .then(response => {
+      .then((response) => {
         setPosts(response.data.data);
       })
-      .catch(() => setError("Error al cargar los posts"))
+      .catch(() => setError('Error al cargar los posts'))
       .finally(() => setIsLoading(false));
   }, []);
 
@@ -26,10 +26,10 @@ export function usePost(id: number) {
   useEffect(() => {
     if (!id) return;
 
-    setIsLoading(true); 
+    setIsLoading(true);
     getPost(id)
-      .then(response => setPost(response.data.data))
-      .catch(() => setError("Error obteniendo el post"))
+      .then((response) => setPost(response.data.data))
+      .catch(() => setError('Error obteniendo el post'))
       .finally(() => setIsLoading(false));
   }, [id]);
 

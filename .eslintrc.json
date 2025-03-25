@@ -1,0 +1,41 @@
+{
+   "env": {
+      "browser": true,
+      "es2021": true,
+      "node": true
+   },
+   "extends": [
+      "eslint:recommended", // Reglas recomendadas por ESLint
+      "plugin:react/recommended", // Reglas recomendadas para React
+      "plugin:prettier/recommended" // Activar Prettier para que se encargue del formato
+   ],
+   "parserOptions": {
+      "ecmaFeatures": {
+         "jsx": true
+      },
+      "ecmaVersion": 12,
+      "sourceType": "module"
+   },
+   "plugins": [
+      "react",
+      "prettier" // Activa el plugin de Prettier
+   ],
+   "rules": {
+      // Configuración de Prettier
+      "prettier/prettier": [
+         "error",
+         {
+            "endOfLine": "auto", // Configura los saltos de línea automáticamente según el sistema operativo
+            "semi": false, // Asegura que todos los statement terminen con un punto y coma
+            "singleQuote": true, // Usa comillas simples en lugar de dobles
+            "trailingComma": "es5", // Trailing commas para arrays y objetos (solo en ES5)
+            "tabWidth": 2, // Número de espacios por tabulación
+            "printWidth": 80 // Número de caracteres por línea antes de hacer un salto de línea
+         }
+      ],
+      // Otras reglas de ESLint para un formato consistente
+      "react/prop-types": "off", // Si no usas PropTypes puedes desactivarlo
+      "react/jsx-uses-react": "off", // Para versiones de React 17 y superior donde no es necesario importar React
+      "react/jsx-uses-vars": "error"
+   }
+}

@@ -1,5 +1,5 @@
-import styled, { createGlobalStyle } from "styled-components";
-import { theme } from "./themes";
+import styled, { createGlobalStyle } from 'styled-components';
+import { theme } from './themes';
 
 const GlobalStyles = createGlobalStyle`
   * {
@@ -18,25 +18,29 @@ const GlobalStyles = createGlobalStyle`
   }
 `;
 export const SkeletonLoader = styled.div`
-  width: 100%;
-  height: 100%;
-  /* background: linear-gradient(90deg, #f3f3f3 25%, #ecebeb 50%, #f3f3f3 75%); */
-  background-color: red;
-  background-size: 400% 100%;
-  animation: loading 1.5s infinite;
+   width: 100%;
+   height: 100%;
+   /* background: linear-gradient(90deg, #f3f3f3 25%, #ecebeb 50%, #f3f3f3 75%); */
+   background-color: red;
+   background-size: 400% 100%;
+   animation: loading 1.5s infinite;
 
-  @keyframes loading {
-    0% { background-position: 100% 0; }
-    100% { background-position: -100% 0; }
-  }
+   @keyframes loading {
+      0% {
+         background-position: 100% 0;
+      }
+      100% {
+         background-position: -100% 0;
+      }
+   }
 `;
 
 export const AppContainer = styled.div`
-  background-color: ${theme.colors.background};
-  width: 100%;
-  padding: 0 40px;
-  @media (max-width: ${theme.breakpoints.mobile}) {
-    padding: 0 20px;
-  }
-`
+   background-color: ${theme.colors.background};
+   width: 100%;
+   padding: 0 40px;
+   @media (max-width: ${theme.breakpoints.mobile}) {
+      padding: 0 20px;
+   }
+`;
 export default GlobalStyles;

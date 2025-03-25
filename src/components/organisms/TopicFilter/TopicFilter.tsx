@@ -1,43 +1,48 @@
-import React from 'react'
-import { SliderContainer, Title, TopicFilterContainer, TopicFilterSection } from './styled'
-import FilterPill from '../../atoms/FilterPill/FilterPill'
+import React from 'react';
+import {
+   SliderContainer,
+   Title,
+   TopicFilterContainer,
+   TopicFilterSection,
+} from './styled';
+import FilterPill from '../../atoms/FilterPill/FilterPill';
 import { usePosts } from '../../../hooks/usePosts';
 import Slider from 'react-slick';
 
 function TopicFilter() {
-    const { posts } = usePosts();
+   const { posts } = usePosts();
 
-    const topics = posts && posts.map(post => post?.attributes.topic);
-    const uniqueTopics = [...new Set(topics)];
+   const topics = posts && posts.map((post) => post?.attributes.topic);
+   const uniqueTopics = [...new Set(topics)];
 
-    const settings = {
-        dots: false,
-        infinite: true,
-        speed: 500,
-        slidesToShow: 2,
-        slidesToScroll: 1,
-        arrows: false,
-    };
+   const settings = {
+      dots: false,
+      infinite: true,
+      speed: 500,
+      slidesToShow: 2,
+      slidesToScroll: 1,
+      arrows: false,
+   };
 
-    return (
-        <>
-            <TopicFilterSection>
+   return (
+      <>
+         <TopicFilterSection>
             <Title>Topics</Title>
-                <TopicFilterContainer>
-                    {uniqueTopics.map((topic, index) => (
-                        <FilterPill key={index} text={topic} />
-                    ))}
-                </TopicFilterContainer>
-            </TopicFilterSection>
-            {/* <Title>Topics</Title> */}
-            <SliderContainer>
-                <Slider {...settings}>
-                    {uniqueTopics.map((topic, index) => (
-                        <FilterPill key={index} text={topic} />
-                    ))}
-                </Slider>
-            </SliderContainer> </>
-    )
+            <TopicFilterContainer>
+               {uniqueTopics.map((topic, index) => (
+                  <FilterPill key={index} text={topic} />
+               ))}
+            </TopicFilterContainer>
+         </TopicFilterSection>
+         <SliderContainer>
+            <Slider {...settings}>
+               {uniqueTopics.map((topic, index) => (
+                  <FilterPill key={index} text={topic} />
+               ))}
+            </Slider>
+         </SliderContainer>{' '}
+      </>
+   );
 }
 
-export default TopicFilter
+export default TopicFilter;

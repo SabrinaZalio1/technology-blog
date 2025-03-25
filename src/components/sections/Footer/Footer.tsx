@@ -1,9 +1,6 @@
-import { Link } from "@mui/material";
-import Facebook from "../../../assets/icons/Facebook";
-import LinkedIn from "../../../assets/icons/LinkedIn";
-import Twitter from "../../../assets/icons/Twitter";
 import Logo from "../../atoms/Logo/Logo";
-import { ContainerLink, Detail, DetailContainer, FooterContainer, IconsSection, Section } from "./styled";
+import { Detail, DetailContainer, FooterContainer, IconsSection, Section } from "./styled";
+import SocialLinks from "../../molecules/SocialLinks/SocialLinks";
 
 
 export const Footer = () => {
@@ -12,21 +9,7 @@ export const Footer = () => {
             <Section>
                 <Logo />
                 <IconsSection>
-                    <ContainerLink>
-                        <Link href="https://www.instagram.com/hellolitebox/?hl=es" target="_blank">
-                            <LinkedIn />
-                        </Link>
-                    </ContainerLink>
-                    <ContainerLink>
-                        <Link href="https://en-gb.facebook.com/hellolitebox" target="_blank">
-                            <Facebook />
-                        </Link>
-                    </ContainerLink>
-                    <ContainerLink>
-                        <Link href="https://x.com/litebox" target="_blank">
-                            <Twitter />
-                        </Link>
-                    </ContainerLink>
+                    <SocialLinks/>
                 </IconsSection>
             </Section>
             <DetailContainer>

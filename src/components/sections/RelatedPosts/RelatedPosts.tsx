@@ -9,7 +9,7 @@ export default function RelatedPosts() {
             <RelatedPostsHeader>
                 <Title>Related posts</Title>
                 <UploadPostModal>
-                    <BtnLink arrowColor='#9C73F7' to={''} text='New Post' />
+                    <BtnLink arrowColor='#9C73F7' to='' text='New Post' variant='light'/>
                 </UploadPostModal>
             </RelatedPostsHeader>
             <RelatedPostListContainer>

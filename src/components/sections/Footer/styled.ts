@@ -37,12 +37,6 @@ export const Link = styled.a`
    color:${theme.colors.background};
 `;
 
-export const ContainerLink = styled.div`
-    transition: all .2s ease;
-        &:hover { 
-    transform: scale(1.1);
-   }
-`;
 export const IconsSection = styled.div`
     display: flex;
     gap:15px;

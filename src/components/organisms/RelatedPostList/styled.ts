@@ -2,7 +2,7 @@ import styled from "styled-components";
 import { theme } from "../../../styles/themes";
 
 export const RelatedPostListContainer = styled.div`
- width: 80%;
+ width: 100%;
  /* display: flex; */
  gap: 30px;
  height: 350px;

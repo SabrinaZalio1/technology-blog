@@ -2,14 +2,14 @@ import { useParams } from "react-router-dom";
 import Banner from "../../components/sections/Banner/Banner";
 import { Footer } from "../../components/sections/Footer/Footer";
 import { Header } from "../../components/sections/Header/Header";
-import { Container } from "./styled";
+import { Container, RelatedPostsContainer } from "./styled";
 import { usePost } from "../../hooks/usePosts";
 import PostDetail from "../../components/sections/PostDetail/PostDetail";
 import RelatedPosts from "../../components/sections/RelatedPosts/RelatedPosts";
 import SliderCarousel from "../../components/organisms/SliderCarousel/SliderCarousel";
 
 function NewsDetail() {
-  const { id } = useParams<{ id: string }>();  
+  const { id } = useParams<{ id: string }>();
   const numericId = id ? parseInt(id, 10) : null;
 
   const { post, isLoading, error } = usePost(numericId || 0);
@@ -22,9 +22,11 @@ function NewsDetail() {
     <Container>
       <Header />
       <Banner id={numericId || 1} />
-      <PostDetail post={post}/>
-      <RelatedPosts/>
-      <SliderCarousel/>
+      <PostDetail post={post} />
+      <RelatedPostsContainer>
+        <RelatedPosts />
+      </RelatedPostsContainer>
+      <SliderCarousel />
       <Footer />
     </Container>
   );

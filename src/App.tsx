@@ -11,14 +11,14 @@ function App() {
 
   return (
     <>
-    <AppContainer>
-      <Header/>
-      <Banner id={1} title/>
-      <TopicFilter/>
-      <Blog/>
-      <UploadPost/>
-      <Footer/>
-    </AppContainer>
+      <Header />
+      <AppContainer>
+        <Banner id={1} title />
+        <TopicFilter />
+        <Blog />
+        <UploadPost />
+        <Footer />
+      </AppContainer>
     </>
   )
 }

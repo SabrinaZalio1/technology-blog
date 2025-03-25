@@ -23,7 +23,7 @@ console.log('posts',posts)
         <StyledNewsGrid variant={variant}>
             {selectedPosts.length > 0 ? (
                 selectedPosts.map((post: IPost) => (
-                    <Post key={post.id} post={post} variant="light" />
+                    <Post key={post.id} post={post} variant="light"/>
                 ))
             ) : (
                 <p>No hay suficientes posts para mostrar.</p>

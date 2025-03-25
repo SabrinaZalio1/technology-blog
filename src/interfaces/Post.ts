@@ -32,3 +32,15 @@ export interface IPost {
    variant?: 'dark' | 'light';
    headerVariant?: 'pill' | 'author';
 }
+export interface ICreatePost {
+      data: {
+         title: string;
+         subtitle: string;
+         topic: string;
+         author: string;
+         readTime: number;
+         coverImg: number;
+         body: string;
+      }
+
+}

@@ -23,7 +23,7 @@ const FilterPill = ({
    };
 
    return (
-      <PillContainer selected={isSelected} onClick={handleClick}>
+      <PillContainer selected={isSelected} onClick={handleClick} variant={variant}>
          {text}
       </PillContainer>
    );

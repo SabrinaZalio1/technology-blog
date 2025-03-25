@@ -1,4 +1,3 @@
-import React from 'react';
 import { IIcon } from '../../interfaces/Icon';
 
 export default function Twitter({ color = 'white', size = 25 }: IIcon) {

@@ -4,11 +4,16 @@ import { IPost } from '../../../interfaces/Post';
 import HeaderPost from '../HeaderPost.tsx/HeaderPost';
 import defaultBackground from './../../../assets/defaultImg.jpg';
 
+interface IPostComponent {
+   post: IPost;
+   variant: 'light' | 'dark'
+   headerVariant?: 'pill' | 'author'
+}
 export default function Post({
    post,
    variant,
    headerVariant,
-}: IPost & { headerVariant?: 'pill' | 'author' }) {
+}: IPostComponent) {
    const { attributes } = post || {};
    const coverImg = attributes?.coverImg || null;
 

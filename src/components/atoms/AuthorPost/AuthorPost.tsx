@@ -1,4 +1,4 @@
-import React from 'react';
+''
 import { AuthorImg, AuthorName, AuthorPostContainer } from './styled';
 
 interface IAuthorPost {

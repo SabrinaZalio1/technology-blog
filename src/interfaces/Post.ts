@@ -1,7 +1,7 @@
 export interface IPostAttributes {
    author: string;
    body: string;
-   coverImg: IImageData;
+   coverImg: IImageAttributes;
    createdAt: string;
    publishedAt: string;
    readTime: number;
@@ -12,14 +12,19 @@ export interface IPostAttributes {
 }
 
 export interface IImageAttributes {
-   name: string;
-   url: string;
+   data: {
+      attributes: {
+         name: string;
+         url: string;
+      }
+   }
+
 }
 
-export interface IImageData {
-   id: number;
-   attributes: IImageAttributes;
-}
+// export interface IImageData {
+//    id: number;
+//    attributes: IImageAttributes;
+// }
 
 export interface IPost {
    id?: number;

@@ -1,4 +1,3 @@
-import React from 'react';
 import Post from '../../organisms/Post/Post';
 import { usePost } from '../../../hooks/usePosts';
 import { BannerContainer, Title } from './styled';

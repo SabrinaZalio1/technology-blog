@@ -1,4 +1,3 @@
-import React from 'react';
 import { IIcon } from '../../interfaces/Icon';
 
 export default function ArrowRight({ color = '#D8F34E', size = 20 }: IIcon) {

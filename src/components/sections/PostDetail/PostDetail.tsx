@@ -1,4 +1,3 @@
-import React from 'react';
 import { IPost } from '../../../interfaces/Post';
 import {
    PostBodyContainer,
@@ -11,7 +10,11 @@ import MostViewPosts from '../MostViewPosts/MostViewPosts';
 import { theme } from '../../../styles/themes';
 import SocialLinks from '../../molecules/SocialLinks/SocialLinks';
 
-export default function PostDetail({ post }: IPost) {
+interface IPostDetail {
+   post: IPost;
+}
+
+export default function PostDetail({ post }: IPostDetail) {
    const { attributes } = post || {};
    return (
       <PostDetailContainer>

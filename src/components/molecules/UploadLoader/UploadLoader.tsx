@@ -1,4 +1,3 @@
-import React from 'react';
 import { BarWrapper, Button, Container, ProgressBar, Text } from './styled';
 
 interface UploadLoaderProps {

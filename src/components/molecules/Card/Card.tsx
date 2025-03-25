@@ -10,10 +10,14 @@ import { IPost } from '../../../interfaces/Post';
 import { useState } from 'react';
 import { CircularProgress } from '@mui/material';
 
-function Card(post: IPost) {
-   const [isLoading, setIsLoading] = useState(true);
+interface ICard {
+  post: IPost;
+}
 
-   const { attributes } = post?.post;
+function Card({post}: ICard) {
+   const [isLoading, setIsLoading] = useState(true);
+console.log('post', post)
+   const { attributes } = post;
    const { coverImg, title } = attributes;
 
    const baseUrl = 'https://lite-tech-api.litebox.ai';

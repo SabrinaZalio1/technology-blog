@@ -1,4 +1,3 @@
-import React from 'react';
 import { ErrorText, InputContainer, Label, StyledInput } from './styled';
 
 export type InputProps = {

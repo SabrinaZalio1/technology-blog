@@ -1,8 +1,9 @@
 import { useEffect, useState } from 'react';
 import { getPost, getPosts } from '../service/index.service';
+import { IPost } from '../interfaces/Post';
 
 export function usePosts() {
-  const [posts, setPosts] = useState<[]>([]);
+  const [posts, setPosts] = useState<IPost[]>([]);
   const [error, setError] = useState<string | null>(null);
   const [isLoading, setIsLoading] = useState(true);
 
@@ -19,7 +20,7 @@ export function usePosts() {
 }
 
 export function usePost(id: number) {
-  const [post, setPost] = useState<any>(null);
+  const [post, setPost] = useState<IPost | null>(null);
   const [error, setError] = useState<string | null>(null);
   const [isLoading, setIsLoading] = useState(true);
 

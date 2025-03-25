@@ -44,6 +44,7 @@ export default function UploadPostModal({ children }: IUploadPostModal) {
     const postData = {
       data: {
         title: name,
+        subtitle: 'Subtitle',
         topic: 'Seguridad',
         author: 'Juan Pérez',
         readTime: 5,

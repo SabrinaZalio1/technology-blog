@@ -10,5 +10,8 @@ export const Title = styled.h2`
 `;
 
 export const BannerContainer = styled.div`
+@media (min-width: ${theme.breakpoints.tablet}) {
     height: 64vh;
+    margin-bottom: 80px;
+}
 `;

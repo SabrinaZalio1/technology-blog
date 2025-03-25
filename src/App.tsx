@@ -5,7 +5,6 @@ import { AppContainer } from './styles/GlobalStyles'
 import Banner from './components/sections/Banner/Banner'
 import TopicFilter from './components/organisms/TopicFilter/TopicFilter'
 import Blog from './pages/Blog/Blog'
-import UploadPost from './components/sections/UploadPost/UploadPost'
 
 function App() {
 
@@ -16,7 +15,6 @@ function App() {
         <Banner id={1} title />
         <TopicFilter />
         <Blog />
-        <UploadPost />
         <Footer />
       </AppContainer>
     </>

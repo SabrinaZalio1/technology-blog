@@ -1,26 +1,42 @@
 import { useRef, useState } from "react";
 import { Input, NewInput } from "./styled";
 
-const UploadImgButton = ({ onUploadStart }: { onUploadStart: () => void }) => {
-  const [image, setImage] = useState<string | null>(null);
+const UploadImgButton = ({ 
+  onUploadStart, 
+  setImage 
+}: { 
+  onUploadStart: () => void; 
+  setImage: React.Dispatch<React.SetStateAction<string | null>>;
+}) => {
   const inputRef = useRef<HTMLInputElement | null>(null);
+
+  // const handleImageChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+  //   const file = event.target.files?.[0].name;
+  //   if (file) {
+  //     console.log('file',file)
+  //     onUploadStart();
+  //     setImage(file); 
+  //   }
+  // };
 
   const handleImageChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const file = event.target.files?.[0];
     if (file) {
-      onUploadStart(); // Iniciar la carga en el componente padre
+      const reader = new FileReader();
+      reader.readAsDataURL(file); 
+      reader.onloadend = () => {
+        const base64String = reader.result as string;
+        onUploadStart();
+        setImage(base64String); 
+      };
     }
   };
-// const onUploadImg = ()=>{
-//     inputRef.current.click()
-// }
-// const removeImg = ()=>{
-//     setImage(null)
-// }
+
+  
   return (
     <>
-       <Input type="file" accept="image/*" onChange={handleImageChange} ref={inputRef} />
-       <NewInput onClick={() => inputRef.current?.click()}>Upload Image</NewInput>
+      <Input type="file" accept="image/*" onChange={handleImageChange} ref={inputRef} />
+      <NewInput onClick={() => inputRef.current?.click()}>Upload Image</NewInput>
     </>
   );
 };

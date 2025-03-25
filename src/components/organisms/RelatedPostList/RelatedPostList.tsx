@@ -13,7 +13,7 @@ export default function RelatedPostList() {
     return (
         <RelatedPostListContainer>
             {!isLoading && posts.length > 0 && (
-                posts.slice(2, 5).map((post: IPost) => (
+                posts.slice(10, 13).map((post: IPost) => (
                     <Post key={post.id} post={post} variant='light' />
                 ))
             )}

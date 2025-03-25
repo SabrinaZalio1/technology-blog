@@ -22,16 +22,17 @@ export default function SliderCarousel() {
         arrows: false,
     };
     return (
-        <SliderContainer> 
-        <Slider {...settings}>
-            {!isLoading && posts.length > 0 && (
-                posts.slice(2, 5).map((post: IPost) => (
-                    <div>
-                        <Post key={post.id} post={post} variant='light' />
-                    </div>
-                ))
-            )}
-        </Slider></SliderContainer>
+        <SliderContainer>
+            <Slider {...settings}>
+                {!isLoading && posts.length > 0 && (
+                    posts.slice(2, 5).map((post: IPost) => (
+                        <div>
+                            <Post key={post.id} post={post} variant='light' />
+                        </div>
+                    ))
+                )}
+            </Slider>
+        </SliderContainer>
 
     );
 }

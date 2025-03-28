@@ -4,9 +4,7 @@ import { usePosts } from '../../../hooks/usePosts';
 import { IPost } from '../../../interfaces/Post';
 
 export default function RelatedPostList() {
-   const { posts, error, isLoading } = usePosts();
-
-   if (error) return <p>{error}</p>;
+   const { posts, isLoading } = usePosts();
 
    if (isLoading) return <div>Cargando...</div>;
 

@@ -1,18 +1,16 @@
-import {
-   SliderContainer,
-   Title,
-   TopicFilterContainer,
-   TopicFilterSection,
-} from './styled';
+import { SliderContainer, Title, TopicFilterContainer, TopicFilterSection } from './styled';
 import FilterPill from '../../atoms/FilterPill/FilterPill';
 import { usePosts } from '../../../hooks/usePosts';
 import Slider from 'react-slick';
 
 function TopicFilter() {
-   const { posts } = usePosts();
+   const { posts, isLoading } = usePosts();
 
-   const topics = posts && posts.map((post) => post?.attributes.topic);
-   const uniqueTopics = [...new Set(topics)];
+   if (isLoading) return <div>Cargando...</div>;
+
+   const uniqueTopics = posts
+      ? [...new Set(posts.map((post) => post?.attributes.topic))]
+      : [];
 
    const settings = {
       dots: false,
@@ -21,25 +19,30 @@ function TopicFilter() {
       slidesToShow: 2,
       slidesToScroll: 1,
       arrows: false,
-   };
+   } as const;
+
+   const filterPillList =
+      uniqueTopics.length > 0 ? (
+         uniqueTopics.map((topic) => (
+            <FilterPill key={topic} text={topic} />
+         ))
+      ) : (
+         <p>No hay temas disponibles.</p>
+      )
 
    return (
       <>
          <TopicFilterSection>
             <Title>Topics</Title>
             <TopicFilterContainer>
-               {uniqueTopics.map((topic, index) => (
-                  <FilterPill key={index} text={topic} />
-               ))}
+               {filterPillList}
             </TopicFilterContainer>
          </TopicFilterSection>
          <SliderContainer>
             <Slider {...settings}>
-               {uniqueTopics.map((topic, index) => (
-                  <FilterPill key={index} text={topic} />
-               ))}
+              {filterPillList}
             </Slider>
-         </SliderContainer>{' '}
+         </SliderContainer>
       </>
    );
 }

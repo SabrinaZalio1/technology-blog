@@ -16,5 +16,5 @@ export const theme = {
       laptop: '1024px',
       desktop: '1200px',
    },
-   // spacing: (factor: number) => `${factor * 8}px`,
+   
 };

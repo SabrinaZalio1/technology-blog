@@ -18,6 +18,7 @@ import UploadLoader from '../../molecules/UploadLoader/UploadLoader';
 import { useUploadPostModal } from './hook/useUploadPostModal';
 import { useCreatePost } from '../../../hooks/useCreatePost';
 import { bodyTexts } from './bodyTexts';
+import { ICreatePost } from '../../../interfaces/Post';
 
 interface IUploadPostModal {
   children: React.ReactElement;
@@ -37,12 +38,11 @@ export default function UploadPostModal({ children }: IUploadPostModal) {
   const [image, setImage] = React.useState<string | null>(null);
   const { create } = useCreatePost();
 
-  const randomBody = bodyTexts[Math.floor(Math.random() * bodyTexts.length)].body;
-  const randomCoverImg = Math.floor(Math.random() * 8) + 1;
+  const formatPostData = (): ICreatePost => {
+    const randomBody = bodyTexts[Math.floor(Math.random() * bodyTexts.length)].body;
+    const randomCoverImg = Math.floor(Math.random() * 8) + 1;
 
-  const handleCreatePost = async () => {
-    if (!name || !image) return;
-    const postData = {
+    return {
       data: {
         title: name,
         subtitle: 'Subtitle',
@@ -52,7 +52,12 @@ export default function UploadPostModal({ children }: IUploadPostModal) {
         coverImg: randomCoverImg,
         body: randomBody,
       },
-    };
+    }
+  }
+
+  const handleCreatePost = async () => {
+    if (!name || !image) return;
+    const postData = formatPostData()
 
     await create(postData);
     handleClose();

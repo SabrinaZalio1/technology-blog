@@ -5,7 +5,7 @@ export const PostContainer = styled.div<{
    imgLoaded: boolean;
 }>`
    background-image: ${({ backgroundimg, imgLoaded }) =>
-      imgLoaded ? `url(${backgroundimg})` : 'none'};
+   imgLoaded ? `url(${backgroundimg})` : 'none'};
    width: 100%;
    height: 500px;
    background-size: cover;

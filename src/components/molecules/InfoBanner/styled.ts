@@ -1,8 +1,6 @@
 import styled from 'styled-components';
 import { theme } from '../../../styles/themes';
 
-const mobile = '768px';
-
 export const InfoBannerContainer = styled.div`
    display: flex;
    justify-content: space-between;
@@ -11,13 +9,13 @@ export const InfoBannerContainer = styled.div`
    background-color: ${theme.colors.secondaryBackground};
    margin: 30px 0;
 
-   @media (max-width: ${mobile}) {
+   @media (max-width: ${theme.breakpoints.mobile}) {
       display: flex;
       flex-direction: column;
       gap: 20px;
       padding: 30px;
    }
-   @media (min-width: ${mobile}) {
+   @media (min-width: ${theme.breakpoints.mobile}) {
       height: 120px;
    }
 `;

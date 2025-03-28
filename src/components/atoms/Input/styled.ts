@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { theme } from '../../../styles/themes';
 
 export const Label = styled.label<{ $isActive: boolean }>`
    position: absolute;
@@ -16,7 +17,7 @@ export const Label = styled.label<{ $isActive: boolean }>`
 
 export const StyledInput = styled.input<{ $error?: boolean }>`
    padding: 12px 10px 8px;
-   border: 2px solid ${({ $error }) => ($error ? 'red' : '#000')};
+   border: 2px solid ${({ $error }) => ($error ? theme.colors.secondary : theme.colors.background)};
    outline: none;
    font-size: 16px;
    width: 100%;

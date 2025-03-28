@@ -7,7 +7,7 @@ import {
    Title,
 } from './styled';
 import { IPost } from '../../../interfaces/Post';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { CircularProgress } from '@mui/material';
 
 interface ICard {
@@ -17,12 +17,17 @@ interface ICard {
 function Card({post}: ICard) {
    const [isLoading, setIsLoading] = useState(true);
 
-   const { attributes } = post;
-   const { coverImg, title } = attributes;
+   const { coverImg, title } = post.attributes;
 
    const baseUrl = 'https://lite-tech-api.litebox.ai';
    const coverUrl = coverImg?.data.attributes.url;
    const imageUrl = `${baseUrl}${coverUrl}`;
+
+   useEffect(() => {
+      const img = new window.Image();
+      img.src = imageUrl;
+      img.onload = () => setIsLoading(false);
+   }, [imageUrl]);
 
    return (
       <CardContainer>

@@ -27,14 +27,14 @@ const HeaderPost: React.FC<HeaderPostProps> = ({
    const { id, attributes } = post;
    const { readTime, title, topic, author } = attributes;
 
+   const categoryContent = headerVariant === 'pill' 
+   ? <FilterPill text={topic} variant="informative" />
+   : <AuthorPost author={author} />;
+
    return (
       <HeaderPostContainer>
          <CategoryContainer $variant={variant}>
-            {headerVariant === 'pill' ? (
-               <FilterPill text={topic} variant="informative" />
-            ) : (
-               <AuthorPost author={author} />
-            )}
+           {categoryContent}
          </CategoryContainer>
          <InfoContainer $variant={variant}>
             <Title $variant={variant}>{title}</Title>

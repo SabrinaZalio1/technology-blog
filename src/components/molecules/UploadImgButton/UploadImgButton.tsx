@@ -10,15 +10,6 @@ const UploadImgButton = ({
 }) => {
    const inputRef = useRef<HTMLInputElement | null>(null);
 
-   // const handleImageChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-   //   const file = event.target.files?.[0].name;
-   //   if (file) {
-   //     console.log('file',file)
-   //     onUploadStart();
-   //     setImage(file);
-   //   }
-   // };
-
    const handleImageChange = (event: React.ChangeEvent<HTMLInputElement>) => {
       const file = event.target.files?.[0];
       if (file) {

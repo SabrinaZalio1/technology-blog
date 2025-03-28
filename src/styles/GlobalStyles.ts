@@ -20,7 +20,6 @@ const GlobalStyles = createGlobalStyle`
 export const SkeletonLoader = styled.div`
    width: 100%;
    height: 100%;
-   /* background: linear-gradient(90deg, #f3f3f3 25%, #ecebeb 50%, #f3f3f3 75%); */
    background-color: red;
    background-size: 400% 100%;
    animation: loading 1.5s infinite;

@@ -10,7 +10,6 @@ export const MostViewPostsContainer = styled.div`
    display: flex;
    flex-direction: column;
    gap: 10px;
-   /* max-width: 380px; */
 `;
 export const MostViewPostsSection = styled.div`
    width: 25%;

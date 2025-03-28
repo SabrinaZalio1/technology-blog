@@ -17,6 +17,7 @@ import { Input } from '../../atoms/Input/Input';
 import UploadLoader from '../../molecules/UploadLoader/UploadLoader';
 import { useUploadPostModal } from './hook/useUploadPostModal';
 import { useCreatePost } from '../../../hooks/useCreatePost';
+import { bodyTexts } from './bodyTexts';
 
 interface IUploadPostModal {
   children: React.ReactElement;
@@ -36,9 +37,9 @@ export default function UploadPostModal({ children }: IUploadPostModal) {
   const [image, setImage] = React.useState<string | null>(null);
   const { create } = useCreatePost();
 
-  // const base_url = 'https://lite-tech-api.litebox.ai/uploads/'
+  const randomBody = bodyTexts[Math.floor(Math.random() * bodyTexts.length)].body;
+  const randomCoverImg = Math.floor(Math.random() * 8) + 1;
 
-  console.log('image', image);
   const handleCreatePost = async () => {
     if (!name || !image) return;
     const postData = {
@@ -48,9 +49,8 @@ export default function UploadPostModal({ children }: IUploadPostModal) {
         topic: 'Seguridad',
         author: 'Juan Pérez',
         readTime: 5,
-        // coverImg: `${image}`,
-        coverImg: 5,
-        body: '<p>Contenido del post</p>',
+        coverImg: randomCoverImg,
+        body: randomBody,
       },
     };
 

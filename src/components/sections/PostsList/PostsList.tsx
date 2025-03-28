@@ -5,18 +5,16 @@ import { StyledNewsGrid } from './styled';
 
 interface PostListProps {
    variant?: 'default' | 'reversed';
+   startIndex: number;
 }
 
-const PostList = ({ variant = 'default' }: PostListProps) => {
+const PostList = ({ variant = 'default', startIndex }: PostListProps) => {
    const { posts, error, isLoading } = usePosts();
-   console.log('posts', posts);
+
    if (error) return <p>{error}</p>;
    if (isLoading) return <div>Cargando...</div>;
 
-   const firstPosts = posts.slice(1, 4);
-   const secondPosts = posts.slice(4, 7);
-
-   const selectedPosts = variant === 'default' ? firstPosts : secondPosts;
+   const selectedPosts = posts.slice(startIndex, startIndex + 3); 
 
    return (
       <StyledNewsGrid variant={variant}>

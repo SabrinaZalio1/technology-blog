@@ -28,13 +28,3 @@ export const PostContainer = styled.div<{
       height: 100%;
    }
 `;
-
-/* export const PostContainer = styled.div<PostContainerProps>`
-   background-image: ${({ backgroundimg }) => `url(${backgroundimg})`};
-   width: 100%;
-   height: 100%;
-   background-size: cover;
-   background-position: center;
-   position:relative
-   
-`; */

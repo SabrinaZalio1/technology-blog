@@ -10,7 +10,6 @@ export const InfoBannerContainer = styled.div`
    padding: 20px 30px;
    background-color: ${theme.colors.secondaryBackground};
    margin: 30px 0;
-   /* max-height: 120px; */
 
    @media (max-width: ${mobile}) {
       display: flex;

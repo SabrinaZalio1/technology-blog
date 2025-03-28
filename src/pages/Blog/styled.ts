@@ -15,3 +15,8 @@ export const PostsContainer = styled.div`
       width: 100%;
    }
 `;
+export const ButtonContainer = styled.div`
+   display: flex;
+   justify-content: center;
+   margin: 20px 0;
+`;

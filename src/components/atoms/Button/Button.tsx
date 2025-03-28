@@ -4,11 +4,12 @@ interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
    variant: 'primary' | 'secondary' | 'black' | 'green';
    text: string;
    onClick?: () => void;
+   width?: string;
 }
 
-export const Button: React.FC<ButtonProps> = ({ variant, text, ...props }) => {
+export const Button: React.FC<ButtonProps> = ({ variant, text, width, ...props }) => {
    return (
-      <StyledButton variant={variant} {...props}>
+      <StyledButton variant={variant} width={width} {...props}>
          {text}
       </StyledButton>
    );

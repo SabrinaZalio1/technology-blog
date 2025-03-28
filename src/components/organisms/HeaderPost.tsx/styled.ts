@@ -20,7 +20,6 @@ export const InfoContainer = styled.div<{ $variant: 'dark' | 'light' }>`
    padding: 20px;
    gap: 20px;
    max-width: ${({ $variant }) => $variant === 'dark' && '550px'};
-   /* max-height: 160px; */
 `;
 export const CategoryContainer = styled.div<{ $variant: 'dark' | 'light' }>`
    background-color: ${({ $variant }) =>

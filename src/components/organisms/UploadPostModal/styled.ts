@@ -36,7 +36,6 @@ export const ButtonContainer = styled.div`
 `;
 export const Btn = styled.div`
    width: 100%;
-   /* background-color: transparent; */
    @media (min-width: ${theme.breakpoints.mobile}) {
       max-width: 152px;
    }
@@ -48,8 +47,9 @@ export const StyledModalBox = styled(Box)`
    left: 50%;
    transform: translate(-50%, -50%);
    background-color: #d8f34e;
-   border: 2px solid #000;
-   box-shadow: 24px 24px 24px rgba(0, 0, 0, 0.1);
+   box-shadow: 10px 12px 5px 0px rgba(0,0,0,1);
+   -webkit-box-shadow: 10px 12px 5px 0px rgba(0,0,0,1);
+   -moz-box-shadow: 10px 12px 5px 0px rgba(0,0,0,1);
    padding: 16px;
    display: flex;
    align-items: center;

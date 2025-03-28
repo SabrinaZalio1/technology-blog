@@ -2,102 +2,43 @@ import styled, { css } from 'styled-components';
 
 const buttonVariants = {
    primary: {
-      default: {
-         background: '#D8F34E',
-         text: '#240F35',
-         border: '1px solid #D8F34E',
-      },
-      hover: {
-         background: '#000000',
-         text: '#FFFFFF',
-         border: '1px solid #000000',
-      },
-      focus: {
-         background: '#D8F34E',
-         text: '#240F35',
-         border: '1px solid #000000',
-      },
-      active: {
-         background: '##240F35',
-         text: '#fff',
-         border: '1px solid #240F35',
-      },
-      disabled: {
-         background: '##FFFFFF',
-         text: '##8C8C8C',
-         border: '1px solid #cccccc',
-      },
+      default: { background: '#D8F34E', text: '#240F35', border: '1px solid #D8F34E' },
+      hover: { background: '#000000', text: '#FFFFFF', border: '1px solid #000000' },
+      focus: { background: '#D8F34E', text: '#240F35', border: '1px solid #000000' },
+      active: { background: '#240F35', text: '#fff', border: '1px solid #240F35' },
+      disabled: { background: '#FFFFFF', text: '#8C8C8C', border: '1px solid #cccccc' },
    },
    secondary: {
-      default: {
-         background: '#FFFFFF',
-         text: '#240F35',
-         border: '1px solid #D8F34E',
-      },
-      hover: {
-         background: '#D8F34E',
-         text: '#240F35',
-         border: '1px solid #D8F34E',
-      },
-      focus: {
-         background: '#FFFFFF',
-         text: '#240F35',
-         border: '1px solid #D8F34E',
-      },
-      active: {
-         background: '#D8F34E',
-         text: '#240F35',
-         border: '1px solid #D8F34E',
-      },
-      disabled: {
-         background: '#FFFFFF',
-         text: '#8C8C8C',
-         border: '1px solid #8C8C8C',
-      },
+      default: { background: '#FFFFFF', text: '#240F35', border: '1px solid #D8F34E' },
+      hover: { background: '#D8F34E', text: '#240F35', border: '1px solid #D8F34E' },
+      focus: { background: '#FFFFFF', text: '#240F35', border: '1px solid #D8F34E' },
+      active: { background: '#D8F34E', text: '#240F35', border: '1px solid #D8F34E' },
+      disabled: { background: '#FFFFFF', text: '#8C8C8C', border: '1px solid #8C8C8C' },
    },
    black: {
       default: { background: '#000', text: '#fff', border: '1px solid #000' },
       hover: { background: '#D8F34E', text: '#000', border: '1px solid #000' },
       focus: { background: '#D8F34E', text: '#000', border: '1px solid #000' },
-      active: {
-         background: '#D8F34E ',
-         text: '#000',
-         border: '1px solid #000',
-      },
-      disabled: {
-         background: '#cccccc',
-         text: '#666',
-         border: '1px solid #cccccc',
-      },
+      active: { background: '#D8F34E', text: '#000', border: '1px solid #000' },
+      disabled: { background: '#cccccc', text: '#666', border: '1px solid #cccccc' },
    },
    green: {
-      default: {
-         background: '#D8F34E',
-         text: '#000',
-         border: '1px solid #000',
-      },
-      hover: {
-         background: '#000',
-         text: '#fff',
-         border: '1px solid transparent',
-      },
+      default: { background: '#D8F34E', text: '#000', border: '1px solid #000' },
+      hover: { background: '#000', text: '#fff', border: '1px solid transparent' },
       focus: { background: '#000', text: '#fff', border: '1px solid #000' },
       active: { background: '#000', text: '#fff', border: '1px solid #000' },
-      disabled: {
-         background: '#cccccc',
-         text: '#666',
-         border: '1px solid #cccccc',
-      },
+      disabled: { background: '#cccccc', text: '#666', border: '1px solid #cccccc' },
    },
 };
 
 interface ButtonProps {
    variant: keyof typeof buttonVariants;
    disabled?: boolean;
+   width?: string;
 }
 
 export const StyledButton = styled.button<ButtonProps>`
-   ${({ variant, disabled }) => {
+   ${({ variant, disabled, width }) => {
       const state = disabled ? 'disabled' : 'default';
       const styles = buttonVariants[variant][state];
 
@@ -105,14 +46,12 @@ export const StyledButton = styled.button<ButtonProps>`
          background-color: ${styles.background};
          color: ${styles.text};
          border: ${styles.border};
+         width: ${width || '100%'}; 
          padding: 10px 20px;
          font-size: 16px;
          cursor: ${disabled ? 'not-allowed' : 'pointer'};
-         transition:
-            background 0.3s,
-            border 0.3s;
+         transition: background 0.3s, border 0.3s;
          font-weight: 500;
-         width: 100%;
 
          &:hover {
             ${!disabled &&
@@ -128,7 +67,7 @@ export const StyledButton = styled.button<ButtonProps>`
             css`
                background-color: ${buttonVariants[variant].focus.background};
                border: ${buttonVariants[variant].focus.border};
-               color: ${buttonVariants[variant].hover.text};
+               color: ${buttonVariants[variant].focus.text};
                outline: none;
             `}
          }
@@ -138,7 +77,7 @@ export const StyledButton = styled.button<ButtonProps>`
             css`
                background-color: ${buttonVariants[variant].active.background};
                border: ${buttonVariants[variant].active.border};
-               color: ${buttonVariants[variant].hover.text};
+               color: ${buttonVariants[variant].active.text};
             `}
          }
       `;

@@ -16,7 +16,7 @@ interface ICard {
 
 function Card({post}: ICard) {
    const [isLoading, setIsLoading] = useState(true);
-console.log('post', post)
+
    const { attributes } = post;
    const { coverImg, title } = attributes;
 

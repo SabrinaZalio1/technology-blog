@@ -7,11 +7,11 @@ export const Title = styled.h2`
 
 export const TopicFilterContainer = styled.div`
    display: none;
-   flex-wrap: wrap;
    gap: 10px;
-
+   
    @media (min-width: ${theme.breakpoints.tablet}) {
       display: flex;
+      flex-wrap: wrap;
       flex: 1;
    }
 `;

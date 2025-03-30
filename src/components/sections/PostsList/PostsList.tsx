@@ -1,4 +1,3 @@
-import { usePosts } from '../../../hooks/usePosts';
 import { IPost } from '../../../interfaces/Post';
 import Post from '../../organisms/Post/Post';
 import { StyledNewsGrid } from './styled';
@@ -6,13 +5,10 @@ import { StyledNewsGrid } from './styled';
 interface PostListProps {
    variant?: 'default' | 'reversed';
    startIndex: number;
+   posts:IPost[];
 }
 
-const PostList = ({ variant = 'default', startIndex }: PostListProps) => {
-   const { posts, error, isLoading } = usePosts();
-
-   if (error) return <p>{error}</p>;
-   if (isLoading) return <div>Cargando...</div>;
+const PostList = ({ variant = 'default', startIndex, posts }: PostListProps) => {
 
    const selectedPosts = posts.slice(startIndex, startIndex + 3); 
 

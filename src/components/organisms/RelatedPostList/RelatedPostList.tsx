@@ -1,16 +1,16 @@
 import Post from '../Post/Post';
 import { RelatedPostListContainer } from './styled';
-import { usePosts } from '../../../hooks/usePosts';
 import { IPost } from '../../../interfaces/Post';
 
-export default function RelatedPostList() {
-   const { posts, isLoading } = usePosts();
+interface IRelatedPostListProps{
+   posts: IPost[];
+}
 
-   if (isLoading) return <div>Cargando...</div>;
+export default function RelatedPostList({posts}:IRelatedPostListProps) {
 
    return (
       <RelatedPostListContainer>
-         {!isLoading &&
+         {
             posts.length > 0 &&
             posts
                .slice(10, 13)

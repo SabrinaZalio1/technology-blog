@@ -7,8 +7,12 @@ import {
 } from './styled';
 import BtnLink from '../../atoms/BtnLink/BtnLink';
 import UploadPostModal from '../../organisms/UploadPostModal/UploadPostModal';
+import { IPost } from '../../../interfaces/Post';
 
-export default function RelatedPosts() {
+interface IRelatedPostsProps{
+   posts: IPost[];
+}
+export default function RelatedPosts({posts}:IRelatedPostsProps) {
    return (
       <RelatedPostsContainer>
          <RelatedPostsHeader>
@@ -23,7 +27,7 @@ export default function RelatedPosts() {
             </UploadPostModal>
          </RelatedPostsHeader>
          <RelatedPostListContainer>
-            <RelatedPostList />
+            <RelatedPostList posts={posts}/>
          </RelatedPostListContainer>
       </RelatedPostsContainer>
    );

@@ -8,11 +8,9 @@ interface BannerProps {
 }
 
 export default function Banner({ id = 1, title = false }: BannerProps) {
-   const { post, error, isLoading } = usePost(id);
+   const { post, isLoading } = usePost(id);
 
-   if (isLoading) return <p>Cargando...</p>;
-   if (error) return <p>{error}</p>;
-   if (!post) return <p>No hay datos disponibles</p>;
+   if (isLoading) return <p>Cargando...</p>
 
    return (
       <BannerContainer>

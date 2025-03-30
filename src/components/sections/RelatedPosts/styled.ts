@@ -8,6 +8,7 @@ export const RelatedPostsContainer = styled.div`
 export const RelatedPostsHeader = styled.div`
    display: flex;
    justify-content: space-between;
+   align-items: center;
    margin-bottom: 10px;
 `;
 export const RelatedPostListContainer = styled.div`

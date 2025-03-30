@@ -1,12 +1,13 @@
 import { SliderContainer, Title, TopicFilterContainer, TopicFilterSection } from './styled';
 import FilterPill from '../../atoms/FilterPill/FilterPill';
-import { usePosts } from '../../../hooks/usePosts';
 import Slider from 'react-slick';
+import { IPost } from '../../../interfaces/Post';
 
-function TopicFilter() {
-   const { posts, isLoading } = usePosts();
+interface ITopicFilterProps{
+   posts: IPost[];
+}
 
-   if (isLoading) return <div>Cargando...</div>;
+function TopicFilter({posts}:ITopicFilterProps) {
 
    const uniqueTopics = posts
       ? [...new Set(posts.map((post) => post?.attributes.topic))]
@@ -27,7 +28,7 @@ function TopicFilter() {
             <FilterPill key={topic} text={topic} />
          ))
       ) : (
-         <p>No hay temas disponibles.</p>
+         <p>There is no available topics</p>
       )
 
    return (

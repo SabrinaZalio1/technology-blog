@@ -12,9 +12,10 @@ import SocialLinks from '../../molecules/SocialLinks/SocialLinks';
 
 interface IPostDetail {
    post: IPost;
+   posts:IPost[]
 }
 
-export default function PostDetail({ post }: IPostDetail) {
+export default function PostDetail({ post, posts }: IPostDetail) {
    const { attributes } = post || {};
    return (
       <PostDetailContainer>
@@ -28,7 +29,7 @@ export default function PostDetail({ post }: IPostDetail) {
                dangerouslySetInnerHTML={{ __html: attributes?.body }}
             ></StyledBody>
          </PostBodyContainer>
-         <MostViewPosts />
+         <MostViewPosts posts={posts}/>
       </PostDetailContainer>
    );
 }

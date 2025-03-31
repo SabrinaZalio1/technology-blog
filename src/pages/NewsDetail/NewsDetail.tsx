@@ -23,7 +23,7 @@ function NewsDetail() {
       <Container>
          <Header />
          <Banner id={numericId || 1} />
-         <PostDetail post={post} />
+         <PostDetail post={post} posts={posts}/>
          <RelatedPostsContainer>
             <RelatedPosts posts={posts} />
          </RelatedPostsContainer>

@@ -20,9 +20,10 @@ import { useCreatePost } from '../../../hooks/useCreatePost';
 import { bodyTexts } from './bodyTexts';
 import { ICreatePost } from '../../../interfaces/Post';
 
-interface IUploadPostModal {
-  children: React.ReactElement;
+interface IUploadPostModal{
+  children:React.ReactElement;
 }
+
 export default function UploadPostModal({ children }: IUploadPostModal) {
   const {
     open,
@@ -34,34 +35,83 @@ export default function UploadPostModal({ children }: IUploadPostModal) {
     handleClose,
     handleUploadStart,
     handleRetry,
+    setUploadStatus,
   } = useUploadPostModal();
+  
   const [image, setImage] = React.useState<string | null>(null);
   const { create } = useCreatePost();
 
-  const formatPostData = (): ICreatePost => {
-    const randomBody = bodyTexts[Math.floor(Math.random() * bodyTexts.length)].body;
-    const randomCoverImg = Math.floor(Math.random() * 8) + 1;
+  const isSuccess = uploadStatus === 'success';
 
-    return {
-      data: {
-        title: name,
-        subtitle: 'Subtitle',
-        topic: 'Seguridad',
-        author: 'Juan Pérez',
-        readTime: 5,
-        coverImg: randomCoverImg,
-        body: randomBody,
-      },
-    }
-  }
+  const formatPostData = (): ICreatePost => ({
+    data: {
+      title: name,
+      subtitle: 'Subtitle',
+      topic: 'Seguridad',
+      author: 'Juan Pérez',
+      readTime: 5,
+      coverImg: Math.floor(Math.random() * 8) + 1,
+      body: bodyTexts[Math.floor(Math.random() * bodyTexts.length)].body,
+    },
+  });
 
   const handleCreatePost = async () => {
     if (!name || !image) return;
-    const postData = formatPostData()
-
-    await create(postData);
-    handleClose();
+    await create(formatPostData());
+    setUploadStatus('success');
   };
+
+  const renderContent = () => {
+    if (isSuccess) {
+      return (
+        <>
+          <Title>Your post was successfully uploaded!</Title>
+        </>
+      );
+    }
+
+    return (
+      <>
+        <Title>Upload your post</Title>
+        <Subtitle>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+          Suspendisse commodo libero.
+        </Subtitle>
+        <Section>
+          <Input
+            label="Post Title"
+            type="text"
+            value={name}
+            onChange={(e) => setName(e.target.value)}
+            placeholder="Post Title"
+          />
+
+          {uploadStatus === 'initial' && (
+            <UploadImgButton
+              onUploadStart={handleUploadStart}
+              setImage={setImage}
+            />
+          )}
+
+          {uploadStatus !== 'initial' && (
+            <UploadLoader
+              status={uploadStatus}
+              progress={progress}
+              onRetry={handleRetry}
+            />
+          )}
+        </Section>
+      </>
+    );
+  };
+
+  const renderButton = () => (
+    <StyledButton
+      variant="black"
+      text={isSuccess ? 'Done' : 'Confirm'}
+      onClick={isSuccess ? handleClose : handleCreatePost}
+    />
+  );
 
   return (
     <>
@@ -72,44 +122,8 @@ export default function UploadPostModal({ children }: IUploadPostModal) {
             <Cross />
           </CrossContainer>
           <Container>
-            <Title>Upload your post</Title>
-            <Subtitle>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-              Suspendisse commodo libero.
-            </Subtitle>
-            <Section>
-              <Input
-                label="Post Title"
-                type="text"
-                value={name}
-                onChange={(e) => setName(e.target.value)}
-                placeholder="Post Title"
-              />
-
-              {uploadStatus === 'initial' && (
-                <UploadImgButton
-                  onUploadStart={handleUploadStart}
-                  setImage={setImage}
-                />
-              )}
-
-              {(uploadStatus === 'loading' ||
-                uploadStatus === 'error' ||
-                uploadStatus === 'success') && (
-                  <UploadLoader
-                    status={uploadStatus}
-                    progress={progress}
-                    onRetry={handleRetry}
-                  />
-                )}
-            </Section>
-            <ButtonContainer>
-              <StyledButton
-                variant="black"
-                text="Confirm"
-                onClick={handleCreatePost}
-              />
-            </ButtonContainer>
+            {renderContent()}
+            <ButtonContainer>{renderButton()}</ButtonContainer>
           </Container>
         </StyledModalBox>
       </Modal>

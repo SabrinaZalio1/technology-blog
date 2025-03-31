@@ -41,5 +41,6 @@ export function useUploadPostModal() {
       handleClose,
       handleUploadStart,
       handleRetry,
+      setUploadStatus,
    };
 }

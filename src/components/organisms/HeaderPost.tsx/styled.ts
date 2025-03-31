@@ -53,6 +53,11 @@ export const Detail = styled.span`
    font-size: 14px;
    color: ${theme.colors.gray};
 `;
+export const DetailContainer = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 5px;
+`;
 
 export const Link = styled.a<{ $variant: 'dark' | 'light' }>`
    font-weight: 600;

@@ -15,7 +15,7 @@ export default function Banner({ id = 1, title = false }: BannerProps) {
    return (
       <BannerContainer>
          {title && <Title>Today story</Title>}
-         <Post post={post} variant="dark" headerVariant="author" />
+        { post && <Post post={post} variant="dark" headerVariant="author" />}
       </BannerContainer>
    );
 }

@@ -1,6 +1,7 @@
 import {
    CategoryContainer,
    Detail,
+   DetailContainer,
    HeaderPostContainer,
    InfoContainer,
    Section,
@@ -10,6 +11,7 @@ import FilterPill from '../../atoms/FilterPill/FilterPill';
 import { IPost } from '../../../interfaces/Post';
 import BtnLink from '../../atoms/BtnLink/BtnLink';
 import AuthorPost from '../../atoms/AuthorPost/AuthorPost';
+import File from '../../../assets/icons/File';
 
 interface HeaderPostProps {
    variant?: 'dark' | 'light';
@@ -45,7 +47,10 @@ const HeaderPost: React.FC<HeaderPostProps> = ({
                   arrowColor="#9C73F7"
                   variant={variant}
                />
+               <DetailContainer>
+                  <File/>
                <Detail>{readTime} mins</Detail>
+               </DetailContainer>
             </Section>
          </InfoContainer>
       </HeaderPostContainer>

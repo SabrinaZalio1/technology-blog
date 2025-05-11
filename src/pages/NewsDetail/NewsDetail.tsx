@@ -1,12 +1,16 @@
+import { lazy, Suspense } from 'react';
 import { useParams } from 'react-router-dom';
 import Banner from '../../components/sections/Banner/Banner';
 import { Footer } from '../../components/sections/Footer/Footer';
 import { Header } from '../../components/sections/Header/Header';
 import { Container, RelatedPostsContainer } from './styled';
 import { usePost, usePosts } from '../../hooks/usePosts';
-import PostDetail from '../../components/sections/PostDetail/PostDetail';
-import RelatedPosts from '../../components/sections/RelatedPosts/RelatedPosts';
-import SliderCarousel from '../../components/organisms/SliderCarousel/SliderCarousel';
+import PostDetailSkeleton from '../../components/sections/PostDetail/Skeleton/PostDetailSkeleton';
+
+const PostDetail = lazy(() => import('../../components/sections/PostDetail/PostDetail'));
+const RelatedPosts = lazy(() => import('../../components/sections/RelatedPosts/RelatedPosts'));
+const SliderCarousel = lazy(() => import('../../components/organisms/SliderCarousel/SliderCarousel'));
+
 
 function NewsDetail() {
    const { id } = useParams<{ id: string }>();
@@ -23,12 +27,20 @@ function NewsDetail() {
       <Container>
          <Header />
          <Banner id={numericId || 1} />
-         <PostDetail post={post} posts={posts}/>
+         <Suspense fallback={<PostDetailSkeleton />}>
+            <PostDetail post={post} posts={posts} />
+         </Suspense>
+
          <RelatedPostsContainer>
-            <RelatedPosts posts={posts} />
+            <Suspense fallback={<div>Cargando relacionados...</div>}>
+               <RelatedPosts posts={posts} />
+            </Suspense>
          </RelatedPostsContainer>
-         <SliderCarousel posts={posts} />
-         <Footer />
+
+         <Suspense fallback={<div>Cargando carrusel...</div>}>
+            <SliderCarousel posts={posts} />
+            <Footer />
+         </Suspense>
       </Container>
    );
 }

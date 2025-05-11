@@ -1,8 +1,10 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, lazy, Suspense } from 'react';
 import { PostContainer } from './styled';
 import { IPost } from '../../../interfaces/Post';
-import HeaderPost from '../HeaderPost.tsx/HeaderPost';
 import defaultBackground from './../../../assets/defaultImg.jpg';
+import HeaderPostSkeleton from '../HeaderPost.tsx/Skeleton/HeaderPostSkeleton';
+
+const HeaderPost = lazy(() => import('../HeaderPost.tsx/HeaderPost'));
 
 interface IPostComponent {
    post: IPost;
@@ -36,11 +38,13 @@ export default function Post({
          imgLoaded={imgLoaded}
       >
          <div className="overlay"></div>
-         <HeaderPost
-            post={post}
-            variant={variant}
-            headerVariant={headerVariant}
-         />
+         <Suspense fallback={<HeaderPostSkeleton />}>
+            <HeaderPost
+               post={post}
+               variant={variant}
+               headerVariant={headerVariant}
+            />
+         </Suspense>
       </PostContainer>
    );
 }
